@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="~{common/fragments/config :: configFragment}"></th:block>
+
+<body>
+<div class="sign-container">
+    <h1 class="login-logo">
+        <a href=""><img src="/imgs/logo_combination.svg" alt=""></a>
+    </h1>
+    <form action="" id="login-form">
+        <div class="id-wrap">
+            <div class="input-mailId">
+                <label for="input-mailId"></label>
+                <input type="text" name="" id="input-mailId" class="input-box" placeholder="chuckchuck@naver.com">
+            </div>
+        </div>
+        <div class="password-wrap login">
+            <label for="input-password"></label>
+            <input type="password" name="" id="input-password" class="input-box" placeholder="비밀번호입력">
+        </div>
+        <div class="message-wrap error">
+            <p class="error-message">아이디 또는 비밀번호를 확인해주세요.</p>
+        </div>
+    </form>
+    <div class="save-login">
+        <div class="auto-login-wrap">
+            <input type="checkbox" name="" id="auto-login" class="circle-check-box">
+            <label></label>
+            <label for="auto-login" class="body-sm font-regular">자동로그인</label>
+        </div>
+        <ul class="find-account">
+            <li><a href="">아이디 찾기</a></li>
+            <li><a href="">비밀번호 찾기</a></li>
+        </ul>
+    </div>
+    <button class="primary-btn long" form="login-form">
+        <span>로그인</span>
+    </button>
+    <button class="google-login-btn">
+        <img src="/imgs/google_icon.png" alt="구글">
+        <span>구글 계정으로 로그인하기</span>
+    </button>
+    <a href="/join" class="text-btn">회원가입</a>
+</div>
+
+<th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
+<script layout:fragment="pageScripts" src="/js/account/login.js"></script>
+</body>
+</html>

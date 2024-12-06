@@ -1,0 +1,137 @@
+/* 회원가입페이지 공통부분 */
+#input-container,
+.check-box-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-container {
+    width: 680px;
+    height: 100%;
+    min-height: calc(100vh - 250px);
+    margin: 175px auto 0;
+    padding: 0 80px;
+    text-align: center;
+}
+
+#input-container {
+    gap: 24px;
+    margin-bottom: 77px;
+}
+
+.title-xl.join { margin-bottom: 24px; }
+
+.message-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 8px 8px 0;
+}
+
+.info-message, .error-message, .resend-btn {
+    font-size: var(--caption-xs-font-size);
+    color: var(--gray-600);
+}
+
+.error-message { color: var(--red); }
+
+.message-wrap.error { opacity: 0; }
+/*.send-code { opacity: 0 }*/
+
+.message-wrap.error.on { opacity: 1; }
+/*.send-code.on { opacity: 1 }*/
+
+.text-btn.back { margin-top: 24px; }
+
+/* 초기가입화면 */
+.email-wrap { padding-top: 8px }
+
+.input-birth-wrap {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+}
+
+label[for="birth-year"],
+label[for="birth-month"],
+label[for="birth-date"] {
+    position: relative;
+}
+
+.input-box.birth {
+    width: 160px;
+    padding-right: 34px;
+}
+
+.input-box.birth.month,
+.input-box.birth.date {
+    width: 140px;
+}
+
+label[for="birth-year"]::after,
+label[for="birth-month"]::after,
+label[for="birth-date"]::after {
+    position: absolute;
+    content: "년";
+    top: 25px;
+    right: 24px;
+    font-size: var(--body-md-font-size);
+    font-weight: var(--medium-weight);
+    color: var(--gray-500);
+}
+label[for="birth-month"]::after { content: "월"; }
+label[for="birth-date"]::after { content: "일"; }
+
+.check-box-wrap { gap: 12px; }
+
+.check-box-wrap > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+
+/* 비밀번호 입력 */
+#join-password-form { margin-bottom: 105px; }
+
+.input-wrap { margin-bottom: 16px; }
+
+/* 이메일 인증 */
+.email-wrap.auth { padding-top: 16px }
+
+#join-email-form { margin-bottom: 38px; }
+
+.verification-code-wrap { display: none; }
+
+.verification-code-wrap.on { display: block; }
+
+.send-code {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.code-time {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.resend-btn { text-decoration: underline; }
+
+/* 회원가입 푸터 */
+.terms-list .middle-menu { position: relative; }
+
+.terms-list .middle-menu::before,
+.terms-list .middle-menu::after {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 16px;
+    background-color: var(--gray-700);
+}
+.terms-list .middle-menu::before { left: -7px; }
+.terms-list .middle-menu::after { right: -7px; }

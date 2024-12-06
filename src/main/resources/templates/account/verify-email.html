@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="~{common/fragments/config :: configFragment}"></th:block>
+<body>
+<div class="sign-container">
+    <h1 class="title-xl font-bold join">이메일로 인증하기</h1>
+    <form action="" id="join-email-form">
+        <div class="input-wrap">
+            <div class="email-wrap auth">
+                <label for="input-email"></label>
+                <input type="email" name="" id="input-email" class="input-box" placeholder="이메일 ex) chuckchuck@naver.com">
+            </div>
+            <div class="message-wrap">
+                <p class="info-message">이메일을 입력하고 전송을 눌러주세요.</p>
+            </div>
+        </div>
+        <div class="verification-code-wrap">
+            <label for="verification-code"></label>
+            <input type="text" name="" id="verification-code" class="input-box" placeholder="인증번호 (숫자6자리)">
+        </div>
+        <div class="message-wrap error send-code">
+            <div class="code-time">
+                <p class="error-message">2분 내로 인증을 완료해주세요.</p>
+                <p class="error-message time">00:00</p>
+            </div>
+            <a href="" class="resend-btn">재전송</a>
+        </div>
+    </form>
+    <button class="primary-btn long" form="join-email-form" disabled>
+        <span>전송하기</span>
+    </button>
+    <a href="/join/set-password" class="text-btn back">돌아가기</a>
+</div>
+
+<th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
+<script layout:fragment="pageScripts" src="/js/account/verifyEmail.js"></script>
+</body>
+</html>

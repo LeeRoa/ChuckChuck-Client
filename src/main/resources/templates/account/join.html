@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="~{common/fragments/config :: configFragment}"></th:block>
+<body>
+<div class="sign-container">
+    <h1 class="title-xl font-bold join">이메일 / 생년월일</h1>
+    <div id="input-container">
+        <form action="" id="join-form">
+            <div class="email-wrap">
+                <label for="input-email"></label>
+                <input type="email" name="" id="input-email" class="input-box" placeholder="이메일 ex)chuckchuk@gamil.com">
+            </div>
+            <div class="message-wrap error">
+                <p class="error-message"></p>
+            </div>
+            <div class="input-birth-wrap">
+                <label for="birth-year">
+                    <input type="number" name="" id="birth-year" class="input-box birth year" placeholder="YYYY" maxlength="4">
+                </label>
+                <label for="birth-month">
+                    <input type="number" name="" id="birth-month" class="input-box birth month" placeholder="MM" maxlength="2">
+                </label>
+                <label for="birth-date">
+                    <input type="number" name="" id="birth-date" class="input-box birth date" placeholder="DD" maxlength="2">
+                </label>
+            </div>
+        </form>
+        <div class="check-box-wrap">
+            <div>
+                <input type="checkbox" name="check-agree" id="require-private" class="square-check-box" checked>
+                <label></label>
+                <label for="require-private">(필수) 개인정보 수집 이용 동의하기</label>
+            </div>
+            <div>
+                <input type="checkbox" name="check-agree" id="require-service" class="square-check-box" checked>
+                <label></label>
+                <label for="require-service">(필수) 서비스 이용약관 동의하기</label>
+            </div>
+            <div>
+                <input type="checkbox" name="check-agree" id="email-agree" class="square-check-box">
+                <label></label>
+                <label for="email-agree">(선택) 메일, SNS 수신에 동의합니다.</label>
+            </div>
+            <div>
+                <input type="checkbox" name="check-all" id="all-agree" class="square-check-box">
+                <label></label>
+                <label for="all-agree">모든 약관 및 방침에 동의합니다.</label>
+            </div>
+        </div>
+    </div>
+    <button id="next-btn" class="primary-btn long" form="join-form">
+        <span>다음</span>
+    </button>
+    <a href="/login" class="text-btn back">돌아가기</a>
+</div>
+
+
+<th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
+<script layout:fragment="pageScripts" src="/js/account/join.js"></script>
+</body>
+</html>
