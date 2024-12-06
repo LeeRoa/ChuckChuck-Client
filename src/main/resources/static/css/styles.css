@@ -13,6 +13,7 @@
 /* screens */
 @import url("screens/join.css");
 @import url("screens/login.css");
+@import url("screens/home.css");
 
 /* media 반응형 */
 @import url("media.css");

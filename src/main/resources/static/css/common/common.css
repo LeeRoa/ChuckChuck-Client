@@ -1,5 +1,5 @@
 .inner {
-    margin: 30px 40px;
+    padding: 0 40px;
 }
 
 /* input, button 초기설정 */
@@ -104,30 +104,6 @@ input[type=number] {
     box-shadow: none;
 }
 
-/* GNB 메뉴버튼 */
-
-.gnb-menu-btn {
-    display: inline-block;
-    height: 43px;
-    padding: 8px 16px;
-    border-radius: 10px;
-    background-color: var(--main-bg-white);
-    line-height: 27px;
-    font-size: var(--body-md-font-size);
-    font-weight: var(--bold-weight);
-    letter-spacing: var(--font-letterspacing-2);
-    cursor: pointer;
-}
-
-.gnb-menu-btn.checked {
-    background-color: var(--main-bg-color);
-    color: var(--main-bg-white);
-}
-
-.gnb-menu-btn.checked:hover {
-    background-color: var(--main-bg-hover-color);
-}
-
 /* input */
 .input-box {
     width: 520px;
@@ -191,4 +167,58 @@ label:not([for^="birth"]) { cursor: pointer; }
 .circle-check-box[type=checkbox]:checked + label {
     background-image: url("/imgs/check_box_rounded.svg");
     transition: background-image .3s ease-in-out;
+}
+
+/* 모달 */
+#invite-modal {
+    width: 280px;
+    height: 377px;
+    border-radius: 30px;
+    background-color: var(--main-bg-white);
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 28px 8px;
+}
+
+.modal-content {
+    position: relative;
+    padding: 24px 32px;
+}
+.modal-content::after {
+    position: absolute;
+    content: "";
+    width: 218px;
+    height: 1px;
+    bottom: 1px;
+    background-color: var(--gray-200);
+}
+
+.content-info {
+    margin-top: 8px;
+    color: var(--gray-500);
+}
+
+.modal-btn-wrap { margin-top: 16px; }
+
+/* 모달 수락/거절 버튼 */
+.modal-btn {
+    width: 40px;
+    height: 20px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background-color: var(--main-bg-color);
+    color: var(--main-bg-white);
+    font-size: var(--caption-xxs-font-size);
+    font-weight: var(--medium-weight);
+}
+
+.modal-btn.cancel {
+    border: 1px solid var(--gray-300);
+    background-color: var(--main-bg-white);
+    color: var(--main-bg-black);
 }

@@ -15,7 +15,7 @@ public class pageController {
 
     @GetMapping("/")
     public String home() {
-        return "index";
+        return "home";
     }
 
     @GetMapping("/join")

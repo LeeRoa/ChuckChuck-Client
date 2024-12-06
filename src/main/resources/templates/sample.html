@@ -43,14 +43,92 @@
             <span>구글 계정으로 로그인하기</span>
         </button>
     </div>
+    <div style="background-color: #8C8C8C; width: 150px; height: 60px; padding: 20px;">
+        <button class="modal-btn">
+            수락
+        </button>
+        <button class="modal-btn cancel">
+            거절
+        </button>
+    </div>
     <hr>
     <h3>GNB 메뉴</h3>
-    <div style="background-color: #8C8C8C; width: 600px; height: 60px">
-        <div class="gnb-menu-btn">전자결재</div>
+    <div style="background-color: #8C8C8C; width: 300px; height: 65px; padding: 10px;">
+        <div class="gnb-menu-btn">홈</div>
         <div class="gnb-menu-btn checked">전자결재</div>
+    </div>
+    <div style="background-color: #8C8C8C; width: 300px; height: 65px; padding: 10px;">
+        <div class="avatar-wrap">
+            <img src="/imgs/202301261737390.jpg" alt="" class="avatar">
+            <span class="first-name">김</span>
+        </div>
     </div>
     <hr>
     <label for=""></label>
     <input type="text" name="" id="" class="input-box" placeholder="텍스트는 최대 1줄 까지 입력 가능합니다.">
+    <hr>
+    <h3>헤더</h3>
+    <nav>
+        <div class="nav-left">
+            <h1 class="gnb-logo">
+                <a href=""><img src="/imgs/logo_combination.svg" alt="로고"></a>
+            </h1>
+            <ul>
+                <li><a href="" class="gnb-menu-btn checked">홈</a></li>
+                <li><a href="" class="gnb-menu-btn">전자결재</a></li>
+                <li><a href="" class="gnb-menu-btn">근태관리</a></li>
+                <li><a href="" class="gnb-menu-btn">일정관리</a></li>
+                <li><a href="" class="gnb-menu-btn">게시판</a></li>
+                <li><a href="" class="gnb-menu-btn">조직도</a></li>
+                <li><a href="" class="gnb-menu-btn">관리자</a></li>
+            </ul>
+        </div>
+        <div class="profile-menu">
+            <a href="" class="gnb-icon on invite"><img src="/imgs/gnb/ic_invite.svg" alt="초대"></a>
+            <a href="" class="gnb-icon alarm"><img src="/imgs/gnb/ic_alarm.svg" alt="알림" class="gnb-icon alarm"></a>
+            <a href="" class="avatar-wrap">
+                <img src="/imgs/202301261737390.jpg" alt="초대" class="avatar">
+                <span class="first-name">김</span>
+            </a>
+        </div>
+    </nav>
+    <hr>
+    <h1>초대모달</h1>
+    <div id="invite-modal">
+        <div class="modal-head">
+            <h3 class="caption-xs font-bold">요청</h3>
+            <a href=""><img src="/imgs/main/ic_cancle_small-24x24.svg" alt="취소"></a>
+        </div>
+        <div class="modal-content">
+            <h3 class="content-title caption-xs">새로운 가입 요청이 있어요.</h3>
+            <div class="content-info caption-xxs">
+                <p>아이디 : rlawlgh486@naver.com</p>
+                <p>코드 : 246825</p>
+            </div>
+            <div class="modal-btn-wrap">
+                <button class="modal-btn">
+                    수락
+                </button>
+                <button class="modal-btn cancel">
+                    거절
+                </button>
+            </div>
+        </div>
+        <div class="modal-content">
+            <h3 class="content-title caption-xs">새로운 가입 요청이 있어요.</h3>
+            <div class="content-info caption-xxs">
+                <p>아이디 : rlawlgh486@naver.com</p>
+                <p>코드 : 246825</p>
+            </div>
+            <div class="modal-btn-wrap">
+                <button class="modal-btn">
+                    수락
+                </button>
+                <button class="modal-btn cancel">
+                    거절
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 </html>
