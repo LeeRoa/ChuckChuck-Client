@@ -1,0 +1,9 @@
+@media screen and (max-width: 1024px) {
+    /* join, login 푸터 */
+    .sign-container {
+        min-height: calc(100vh - 336px);
+    }
+    #join-footer {
+        height: 161px;
+    }
+}

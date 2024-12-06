@@ -1,0 +1,56 @@
+<html lang="ko" xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/baseLayout}">
+<div layout:fragment="content" class="inner">
+    <h3 style="font-weight: bold">buttons</h3>
+    <div>
+        <button class="primary-btn short">
+            <img src="/imgs/ic_null_object.png" alt="아이콘">
+            <span>Button</span>
+        </button>
+        <br>
+        <button class="primary-btn short secondary">
+            <img src="/imgs/ic_null_object-black.png" alt="아이콘">
+            <span>Button</span>
+        </button>
+        <br>
+        <button class="primary-btn short" disabled>
+            <img src="/imgs/ic_null_object.png" alt="아이콘">
+            <span>Button</span>
+        </button>
+        <br>
+    </div>
+    <hr>
+    <div>
+        <button class="primary-btn long">
+            <img src="/imgs/ic_null_object.png" alt="아이콘"><span>Button</span>
+        </button>
+        <br>
+        <button class="primary-btn long secondary">
+            <img src="/imgs/ic_null_object-black.png" alt="아이콘">
+            <span>Button</span>
+        </button>
+        <br>
+        <button class="primary-btn long" disabled>
+            <img src="/imgs/ic_null_object.png" alt="아이콘">
+            <span>Button</span>
+        </button>
+        <br>
+    </div>
+    <div>
+        <button class="google-login-btn">
+            <img src="/imgs/google_icon.png" alt="구글">
+            <span>구글 계정으로 로그인하기</span>
+        </button>
+    </div>
+    <hr>
+    <h3>GNB 메뉴</h3>
+    <div style="background-color: #8C8C8C; width: 600px; height: 60px">
+        <div class="gnb-menu-btn">전자결재</div>
+        <div class="gnb-menu-btn checked">전자결재</div>
+    </div>
+    <hr>
+    <label for=""></label>
+    <input type="text" name="" id="" class="input-box" placeholder="텍스트는 최대 1줄 까지 입력 가능합니다.">
+</div>
+</html>
