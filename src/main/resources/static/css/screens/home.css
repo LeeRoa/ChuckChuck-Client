@@ -1,11 +1,12 @@
 #main-container {
     display: grid;
     grid-template-columns: 1fr 640px;
-    margin-top: 32px;
     gap: 40px;
+    padding-top: 32px;
 }
 
 .notice-box {
+    height: fit-content;
     padding: 16px;
     border-radius: 20px;
     background-color: var(--gray-100);
@@ -21,6 +22,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 18px;
+    padding: 0 7px;
 }
 
 .title-left {
@@ -39,6 +41,8 @@
     color: var(--gray-600);
 }
 
+.show-detail { color: var(--gray-600); }
+
 .list-wrap {
     display: flex;
     justify-content: space-between;
@@ -50,8 +54,45 @@
     border-radius: 10px;
 }
 
+.list-wrap.notice {
+    height: 65px;
+    border-radius: 0;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.list-wrap.notice:last-child { border-bottom: none; }
+
+.list-wrap:last-child { margin-bottom: 0; }
+
+.list-left li:first-child {
+    width: 146px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-left li:nth-of-type(2) {
+    position: relative;
+    width: 133px;
+}
+
+.list-left li:nth-of-type(2)::before,
+.list-left li:nth-of-type(2)::after {
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 19px;
+    background-color: var(--gray-300);
+}
+.list-left li:nth-of-type(2)::before { left: -16px; }
+.list-left li:nth-of-type(2)::after { right: -16px; }
+
 .list-left, .writer-info {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 32px;
+}
+
+.writer-info {
+    gap: 4px;
 }
