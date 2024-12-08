@@ -37,4 +37,7 @@
     --bold-weight: 700;
     --extraBold-weight: 800;
     --heady-weight: 900;
+
+    /* 이펙트 */
+    --main-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
 }
