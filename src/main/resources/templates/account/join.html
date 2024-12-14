@@ -8,9 +8,9 @@
     <h1 class="title-xl font-bold join">이메일 / 생년월일</h1>
     <div id="input-container">
         <form action="" id="join-form">
-            <div class="email-wrap">
-                <label for="input-email"></label>
-                <input type="email" name="" id="input-email" class="input-box" placeholder="이메일 ex)chuckchuk@gamil.com">
+            <div class="name-wrap">
+                <label for="input-name"></label>
+                <input type="text" name="" id="input-name" class="input-box" placeholder="이름">
             </div>
             <div class="message-wrap error">
                 <p class="error-message"></p>
@@ -54,10 +54,9 @@
         <span>다음</span>
     </button>
     <a href="/login" class="text-btn back">돌아가기</a>
+    <th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
 </div>
 
-
-<th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
 <script layout:fragment="pageScripts" src="/js/account/join.js"></script>
 </body>
 </html>

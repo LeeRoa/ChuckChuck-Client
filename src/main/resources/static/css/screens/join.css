@@ -8,7 +8,7 @@
 .sign-container {
     width: 680px;
     height: 100%;
-    min-height: calc(100vh - 250px);
+    min-height: calc(100vh - 75px);
     margin: 175px auto 0;
     padding: 0 80px;
     text-align: center;
@@ -42,10 +42,15 @@
 .message-wrap.error.on { opacity: 1; }
 /*.send-code.on { opacity: 1 }*/
 
-.text-btn.back { margin-top: 24px; }
+.text-btn.back { margin: 24px 0 86px; }
 
 /* 초기가입화면 */
-.email-wrap { padding-top: 8px }
+.name-wrap {
+    padding-top: 8px;
+    text-align: left;
+}
+
+#input-name { width: 320px; }
 
 .input-birth-wrap {
     display: flex;

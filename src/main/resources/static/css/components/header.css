@@ -1,6 +1,7 @@
 /* 헤더 GNB 메뉴 */
 header {
     position: relative;
+    /*width: 100%;*/
 }
 nav {
     height: 66px;
@@ -43,9 +44,6 @@ nav ul {
     color: var(--main-bg-white);
 }
 
-.gnb-menu-btn.on:hover {
-    background-color: var(--main-bg-hover-color);
-}
 .profile-menu {
     display: flex;
     align-items: center;
@@ -60,7 +58,7 @@ nav ul {
     content: '';
     width: 8px;
     height: 8px;
-    top: 1px;
+    top: 3px;
     left: 3px;
     border-radius: 50%;
     background-color: var(--main-bg-color);

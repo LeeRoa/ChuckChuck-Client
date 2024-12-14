@@ -1,6 +1,8 @@
 package com.client.chuck.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Slf4j
 @Controller
 public class pageController {
+    @Value("${data.api.encoding}")
+    private String apiEncoding;
+
+    @Value("${data.api.decoding}")
+    private String apiDecoding;
+
     @GetMapping("/sample")
     public String sample() {
         return "sample";

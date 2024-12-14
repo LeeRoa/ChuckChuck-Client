@@ -32,9 +32,9 @@
         <span>전송하기</span>
     </button>
     <a href="/join/set-password" class="text-btn back">돌아가기</a>
+    <th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
 </div>
 
-<th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
 <script layout:fragment="pageScripts" src="/js/account/verifyEmail.js"></script>
 </body>
 </html>

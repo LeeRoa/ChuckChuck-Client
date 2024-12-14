@@ -19,6 +19,7 @@ button:disabled, button[disabled] {
 
 input:focus {
     outline: none;
+    border: 1px solid var(--main-bg-black);
 }
 
 /* 크롬 자동완성 스타일 */

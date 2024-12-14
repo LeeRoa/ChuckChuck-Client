@@ -1,9 +1,14 @@
 @media screen and (max-width: 1024px) {
-    /* join, login 푸터 */
+     /*join, login 푸터 */
     .sign-container {
-        min-height: calc(100vh - 336px);
+        height: 100vh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-    #join-footer {
-        height: 161px;
-    }
+    /*#join-footer {*/
+    /*    height: 161px;*/
+    /*}*/
 }
