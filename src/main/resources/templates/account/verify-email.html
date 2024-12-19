@@ -5,7 +5,7 @@
 <th:block th:replace="~{common/fragments/config :: configFragment}"></th:block>
 <body>
 <div class="sign-container">
-    <h1 class="title-xl font-bold join">이메일로 인증하기</h1>
+    <h1 class="title-xl font-bold join">아이디 생성</h1>
     <form action="" id="join-email-form">
         <div class="input-wrap">
             <div class="email-wrap auth">
@@ -32,8 +32,8 @@
         <span>전송하기</span>
     </button>
     <a href="/join/set-password" class="text-btn back">돌아가기</a>
-    <th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
 </div>
+<th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
 
 <script layout:fragment="pageScripts" src="/js/account/verifyEmail.js"></script>
 </body>

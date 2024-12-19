@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Slf4j
 @Controller
 public class PageController {
+
     @GetMapping("/sample")
     public String sample() {
         return "sample";

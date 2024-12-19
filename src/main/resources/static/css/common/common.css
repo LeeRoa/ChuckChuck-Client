@@ -36,7 +36,7 @@ input:-webkit-autofill[readonly] {
 }
 
 input[readonly] { cursor: not-allowed; }
-
+input[readonly]:focus { border: 1px solid #8C8C8C; }
 
 /* 인풋넘버 화살표 없애기 */
 /* Chrome, Safari, Edge, Opera */

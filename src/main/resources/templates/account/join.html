@@ -5,7 +5,7 @@
 <th:block th:replace="~{common/fragments/config :: configFragment}"></th:block>
 <body>
 <div class="sign-container">
-    <h1 class="title-xl font-bold join">이메일 / 생년월일</h1>
+    <h1 class="title-xl font-bold join">이름 / 생년월일</h1>
     <div id="input-container">
         <form action="" id="join-form">
             <div class="name-wrap">
@@ -54,8 +54,8 @@
         <span>다음</span>
     </button>
     <a href="/login" class="text-btn back">돌아가기</a>
-    <th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
 </div>
+<th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
 
 <script layout:fragment="pageScripts" src="/js/account/join.js"></script>
 </body>
