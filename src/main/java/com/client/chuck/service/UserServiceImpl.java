@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserDetailsService {
     private final WebClientUtils webClientUtils;
 
     @Value("${chuck.server.url}")
-    String admin_url;
+    String server_url;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserDetailsService {
         /*
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("loginID",username);
-            String responseMessage = webClientUtils.post(admin_url, jsonObject.toJSONString());
+            String responseMessage = webClientUtils.post(server_url, jsonObject.toJSONString());
          */
 
         //테스트 데이터 생성
