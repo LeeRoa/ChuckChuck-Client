@@ -5,15 +5,14 @@
 <th:block th:replace="~{common/fragments/config :: configFragment}"></th:block>
 <body>
 <div class="sign-container">
-    <h1 class="title-xl font-bold join">아이디 생성</h1>
-    <form action="" id="joinForm" class="email-form">
+    <h1 class="title-xl font-bold join">비밀번호 찾기</h1>
+    <form action="" id="findPwForm" class="find-pw-form set-bottom">
         <div class="input-wrap">
-            <div class="email-wrap">
-                <label for="inputEmail"></label>
-                <input type="email" name="" id="inputEmail" class="input-box"
-                       placeholder="이메일 ex) chuckchuck@naver.com">
+            <div class="findPw-wrap">
+                <label for="inputFindPw"></label>
+                <input type="email" name="" id="inputFindPw" class="input-box" placeholder="이메일">
             </div>
-            <p class="message info">이메일을 입력하고 전송을 눌러주세요.</p>
+            <p class="message info">비밀번호를 찾으려는 이메일을 입력해주세요.</p>
         </div>
         <div class="verify-container">
             <div class="verify-input-wrap">
@@ -29,13 +28,13 @@
             </div>
         </div>
     </form>
-    <button class="primary-btn long" form="joinForm" disabled>
-        <span>전송하기</span>
+    <button class="primary-btn long" form="findPwForm">
+        <span>다음</span>
     </button>
-    <a href="/join" class="text-btn back">돌아가기</a>
+    <a href="/login" class="text-btn back">돌아가기</a>
 </div>
 <th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
 
-<script layout:fragment="pageScripts" src="/js/account/verifyEmail.js"></script>
+<script layout:fragment="pageScripts" src="/js/account/findPw.js"></script>
 </body>
 </html>

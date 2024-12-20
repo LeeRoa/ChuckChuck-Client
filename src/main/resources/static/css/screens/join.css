@@ -1,5 +1,5 @@
 /* 회원가입페이지 공통부분 */
-#input-container,
+.input-container,
 .check-box-wrap {
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@
     text-align: center;
 }
 
-#input-container {
+.input-container {
     gap: 24px;
     margin-bottom: 77px;
 }
@@ -29,20 +29,26 @@
     padding: 8px 8px 0;
 }
 
-.info-message, .error-message, .resend-btn {
+.message, .resend-btn {
     font-size: var(--caption-xs-font-size);
     color: var(--gray-600);
 }
 
-.error-message { color: var(--red); }
+.message:not(.code, .message-wrap > p) {
+    text-align: left;
+    padding: 8px 8px 0;
+}
 
-.message-wrap.error { opacity: 0; }
-/*.send-code { opacity: 0 }*/
+.message.error {
+    color: var(--red);
+    opacity: 0;
+}
 
-.message-wrap.error.on { opacity: 1; }
-/*.send-code.on { opacity: 1 }*/
+.message.error.on { opacity: 1; }
 
 .text-btn.back { margin-top: 24px; }
+
+/* ----------------------------------------------------------- */
 
 /* 초기가입화면 */
 .name-wrap {
@@ -50,19 +56,13 @@
     text-align: left;
 }
 
-#input-name { width: 320px; }
+.input-box.name { width: 320px; }
 
 .input-birth-wrap {
     display: flex;
     align-items: center;
     gap: 20px;
     padding: 16px 0;
-}
-
-label[for="birth-year"],
-label[for="birth-month"],
-label[for="birth-date"] {
-    position: relative;
 }
 
 .input-box.birth {
@@ -75,9 +75,15 @@ label[for="birth-date"] {
     width: 140px;
 }
 
-label[for="birth-year"]::after,
-label[for="birth-month"]::after,
-label[for="birth-date"]::after {
+label[for="birthYear"],
+label[for="birthMonth"],
+label[for="birthDate"] {
+    position: relative;
+}
+
+label[for="birthYear"]::after,
+label[for="birthMonth"]::after,
+label[for="birthDate"]::after {
     position: absolute;
     content: "년";
     top: 25px;
@@ -86,8 +92,8 @@ label[for="birth-date"]::after {
     font-weight: var(--medium-weight);
     color: var(--gray-500);
 }
-label[for="birth-month"]::after { content: "월"; }
-label[for="birth-date"]::after { content: "일"; }
+label[for="birthMonth"]::after { content: "월"; }
+label[for="birthDate"]::after { content: "일"; }
 
 .check-box-wrap { gap: 12px; }
 
@@ -97,46 +103,40 @@ label[for="birth-date"]::after { content: "일"; }
     gap: 12px;
 }
 
-
+/* --------------------------------------------------------- */
 
 /* 비밀번호 입력 */
-#join-password-form { margin-bottom: 105px; }
+.password-form { margin-bottom: 105px; }
 
 .input-wrap { margin-bottom: 16px; }
 
+
+/* ---------------------------------------------------------- */
+
+
 /* 이메일 인증 */
-.email-wrap.auth { padding-top: 16px }
+.email-form { margin-bottom: 38px; }
 
-#join-email-form { margin-bottom: 38px; }
+.email-wrap { padding-top: 16px }
 
-.verification-code-wrap { display: none; }
+.verify-container { display: none; }
 
-.verification-code-wrap.on { display: block; }
+.verify-container.on { display: block; }
 
-.send-code {
+.time-container {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 8px 8px 0;
 }
 
-.code-time {
+.code-time-wrap {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
+.message.code { color: var(--red) }
+
 .resend-btn { text-decoration: underline; }
-
-/* 회원가입 푸터 */
-.terms-list .middle-menu { position: relative; }
-
-.terms-list .middle-menu::before,
-.terms-list .middle-menu::after {
-    position: absolute;
-    content: "";
-    width: 1px;
-    height: 16px;
-    background-color: var(--gray-700);
-}
-.terms-list .middle-menu::before { left: -7px; }
-.terms-list .middle-menu::after { right: -7px; }

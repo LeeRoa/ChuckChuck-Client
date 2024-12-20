@@ -9,7 +9,7 @@
     <h1 class="login-logo">
         <a href=""><img src="/imgs/logo_combination.svg" alt=""></a>
     </h1>
-    <form action="/loginProcess" id="login-form" name="login-form" method="post">
+    <form action="/loginProcess" id="loginForm" name="login-form" class="login-form" method="post">
         <div class="id-wrap">
             <div class="input-mailId">
                 <label for="loginID"></label>
@@ -20,19 +20,17 @@
             <label for="password"></label>
             <input type="password" name="password" id="password" class="input-box" placeholder="비밀번호입력">
         </div>
-        <div class="message-wrap error">
-            <p class="error-message">아이디 또는 비밀번호를 확인해주세요.</p>
-        </div>
+        <p class="message error">아이디 또는 비밀번호를 확인해주세요.</p>
     </form>
     <div class="save-login">
         <div class="auto-login-wrap">
-            <input type="checkbox" name="" id="auto-login" class="circle-check-box">
+            <input type="checkbox" name="" id="autoLogin" class="circle-check-box">
             <label></label>
-            <label for="auto-login" class="body-sm font-regular">자동로그인</label>
+            <label for="autoLogin" class="body-sm font-regular">자동로그인</label>
         </div>
         <ul class="find-account">
-            <li><a href="">아이디 찾기</a></li>
-            <li><a href="">비밀번호 찾기</a></li>
+            <li><a href="/login/find-id">아이디 찾기</a></li>
+            <li><a href="/login/find-pw">비밀번호 찾기</a></li>
         </ul>
     </div>
     <button class="primary-btn long" onclick="onLogin();">

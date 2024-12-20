@@ -40,6 +40,21 @@ public class PageController {
         return "account/login";
     }
 
+    @GetMapping("/login/find-id")
+    public String findId() {
+        return "account/find-id";
+    }
+
+    @GetMapping("/login/find-pw")
+    public String findPw() {
+        return "account/find-pw";
+    }
+
+    @GetMapping("/login/find-pw/reset-password")
+    public String resetPassword() {
+        return "account/reset-password";
+    }
+
     //Spring Security 에서 처리
     @ResponseBody
     @PostMapping("/loginProcess")

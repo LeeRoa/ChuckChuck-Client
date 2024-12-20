@@ -1,17 +1,16 @@
-const joinForm =document.getElementById("join-form");
-const inputEmail = document.getElementById('input-email')
+const joinForm =document.getElementById("joinForm");
 const items = [...document.querySelectorAll('[name=check-agree]')];
-const checkAll = document.getElementById("all-agree");
+const checkAll = document.getElementById("allAgree");
 const nextBtn = document.getElementById("next-btn");
 const errorMessage = document.querySelector(".error-message")
-const inputYear = document.getElementById("birth-year")
-const inputMonth = document.getElementById("birth-month")
-const inputDate = document.getElementById("birth-date")
+const inputYear = document.getElementById("birthYear")
+const inputMonth = document.getElementById("birthMonth")
+const inputDate = document.getElementById("birthDate")
 
 let emailRegex = '^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$';
 
 items.forEach((item) => {
-    item.onchange = (e) => {
+    item.onchange = () => {
         handleCheckItem(items)
         checkAll.checked = items.every(check => check.checked);
     };

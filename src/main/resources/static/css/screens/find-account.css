@@ -1,0 +1,36 @@
+/* 아이디찾기 */
+.set-bottom { margin-bottom: 152px; }
+.off { display: none; }
+
+/* ------------------------------------------------------------- */
+
+/* 아이디 찾기 결과 */
+.result-container {
+    display: none;
+}
+
+.result-container.complete { display: block; }
+
+.result-box {
+    width: 520px;
+    height: 69px;
+    padding: 21px 25px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--gray-300);
+}
+
+.go-find-pw {
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: var(--gray-700);
+}
+
+/* ------------------------------------------------------------------ */
+
+/* 비밀번호 찾기 */

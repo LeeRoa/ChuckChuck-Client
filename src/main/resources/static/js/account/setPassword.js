@@ -1,17 +1,19 @@
 let passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,32}$/;
 const inputPassword = document.getElementById("password")
-const inputPasswordChk = document.getElementById("password-chk")
-const errorWrap = document.querySelector(".message-wrap.error")
+const inputPasswordChk = document.getElementById("passwordChk")
+const errorMessage = document.querySelector(".message.error")
 const nextBtn = document.querySelector(".primary-btn")
+
+const regex_pwd = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&#.~_-])[A-Za-z\d@$!%*?&#.~_-]{8,32}$/
 
 const checkPassword = () => {
     const passwordValue = inputPassword.value
     const passwordChkValue = inputPasswordChk.value
 
     if (passwordValue !== passwordChkValue) {
-        return errorWrap.classList.add("on")
+        return errorMessage.classList.add("on")
     } else {
-        return errorWrap.classList.remove("on")
+        return errorMessage.classList.remove("on")
     }
 }
 

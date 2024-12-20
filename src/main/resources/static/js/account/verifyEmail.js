@@ -1,9 +1,10 @@
-const emailForm = document.getElementById("join-email-form");
-const verificationCodeWrap = document.querySelector(".verification-code-wrap")
-const messageWrap = document.querySelector(".message-wrap.error")
-const errorMessageTime = document.querySelector(".time");
+const emailForm = document.getElementById("joinForm");
+const verifyContainer = document.querySelector(".verify-container")
+const messageTime = document.querySelector(".time");
 const sendBtn = document.querySelector(".primary-btn");
-const inputEmail = document.getElementById("input-email");
+const inputEmail = document.getElementById("inputEmail");
+const verifyCode = document.getElementById("verifyCode")
+const errorMessage = document.querySelector(".code-time-wrap > p:first-child")
 
 let emailRegex = '^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$';
 
@@ -18,9 +19,23 @@ const handleBtnDisabled = (e) => {
 const handleSubmit = (e) => {
     e.preventDefault();
     inputEmail.readOnly = true;
-    verificationCodeWrap.classList.add("on");
-    messageWrap.classList.add("on");
+    verifyContainer.classList.add("on");
     sendBtn.textContent = "인증하기"
+
+    if (verifyCode.value.trim() === "") {
+        errorMessage.innerText = "인증번호를 입력해 주세요"
+        return
+    } else if (verifyCode.value.length !== 6) {
+        errorMessage.innerText = "6자리 인증번호를 입력해 주세요"
+        return
+    } else if (verifyCode.value !== "567892") {
+        errorMessage.innerText = "인증번호가 일치하지 않습니다."
+        return
+    }
+
+    if (verifyCode.value.trim() === "567892") {
+        alert("인증번호일치")
+    }
 }
 
 inputEmail.addEventListener("input", handleBtnDisabled);

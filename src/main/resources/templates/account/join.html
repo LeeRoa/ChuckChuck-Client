@@ -6,51 +6,49 @@
 <body>
 <div class="sign-container">
     <h1 class="title-xl font-bold join">이름 / 생년월일</h1>
-    <div id="input-container">
-        <form action="" id="join-form">
+    <div class="input-container">
+        <form action="" id="joinForm">
             <div class="name-wrap">
-                <label for="input-name"></label>
-                <input type="text" name="" id="input-name" class="input-box" placeholder="이름">
+                <label for="inputName"></label>
+                <input type="text" name="" id="inputName" class="input-box name" placeholder="이름">
             </div>
-            <div class="message-wrap error">
-                <p class="error-message"></p>
-            </div>
+            <p class="message error"></p>
             <div class="input-birth-wrap">
-                <label for="birth-year">
-                    <input type="number" name="" id="birth-year" class="input-box birth year" placeholder="YYYY" maxlength="4">
+                <label for="birthYear">
+                    <input type="number" name="" id="birthYear" class="input-box birth year" placeholder="YYYY" maxlength="4">
                 </label>
-                <label for="birth-month">
-                    <input type="number" name="" id="birth-month" class="input-box birth month" placeholder="MM" maxlength="2">
+                <label for="birthMonth">
+                    <input type="number" name="" id="birthMonth" class="input-box birth month" placeholder="MM" maxlength="2">
                 </label>
-                <label for="birth-date">
-                    <input type="number" name="" id="birth-date" class="input-box birth date" placeholder="DD" maxlength="2">
+                <label for="birthDate">
+                    <input type="number" name="" id="birthDate" class="input-box birth date" placeholder="DD" maxlength="2">
                 </label>
             </div>
         </form>
         <div class="check-box-wrap">
             <div>
-                <input type="checkbox" name="check-agree" id="require-private" class="square-check-box" checked>
+                <input type="checkbox" name="check-agree" id="requirePrivate" class="square-check-box" checked>
                 <label></label>
-                <label for="require-private">(필수) 개인정보 수집 이용 동의하기</label>
+                <label for="requirePrivate">(필수) 개인정보 수집 이용 동의하기</label>
             </div>
             <div>
-                <input type="checkbox" name="check-agree" id="require-service" class="square-check-box" checked>
+                <input type="checkbox" name="check-agree" id="requireService" class="square-check-box" checked>
                 <label></label>
-                <label for="require-service">(필수) 서비스 이용약관 동의하기</label>
+                <label for="requireService">(필수) 서비스 이용약관 동의하기</label>
             </div>
             <div>
-                <input type="checkbox" name="check-agree" id="email-agree" class="square-check-box">
+                <input type="checkbox" name="check-agree" id="emailAgree" class="square-check-box">
                 <label></label>
-                <label for="email-agree">(선택) 메일, SNS 수신에 동의합니다.</label>
+                <label for="emailAgree">(선택) 메일, SNS 수신에 동의합니다.</label>
             </div>
             <div>
-                <input type="checkbox" name="check-all" id="all-agree" class="square-check-box">
+                <input type="checkbox" name="check-all" id="allAgree" class="square-check-box">
                 <label></label>
-                <label for="all-agree">모든 약관 및 방침에 동의합니다.</label>
+                <label for="allAgree">모든 약관 및 방침에 동의합니다.</label>
             </div>
         </div>
     </div>
-    <button id="next-btn" class="primary-btn long" form="join-form">
+    <button id="next-btn" class="primary-btn long" form="joinForm">
         <span>다음</span>
     </button>
     <a href="/login" class="text-btn back">돌아가기</a>

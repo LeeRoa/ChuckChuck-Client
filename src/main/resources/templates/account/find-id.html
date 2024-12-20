@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="~{common/fragments/config :: configFragment}"></th:block>
+<body>
+<div class="sign-container">
+    <h1 class="title-xl font-bold join find-id-title">아이디 찾기</h1>
+    <form action="" id="findIdForm" class="find-id-form set-bottom">
+        <div class="input-wrap">
+            <div class="findId-wrap">
+                <label for="inputFindId"></label>
+                <input type="text" name="" id="inputFindId" class="input-box" placeholder="사번입력">
+            </div>
+            <p class="message info">소속된 회사의 사번을 입력해주세요.</p>
+        </div>
+    </form>
+    <div class="result-container set-bottom">
+        <div class="result-box">
+            <span>rlawlgh486@naver.com</span>
+            <span>2024.12.01 가입</span>
+        </div>
+        <a href="/login/find-pw" class="go-find-pw body-sm">
+            <span>비밀번호 찾기</span>
+            <img src="/imgs/ic_move_in.svg" alt="화살표"/>
+        </a>
+    </div>
+    <button class="primary-btn long" form="findIdForm">
+        <span>다음</span>
+    </button>
+    <a href="/login" class="text-btn back">돌아가기</a>
+</div>
+<th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
+
+<script layout:fragment="pageScripts" src="/js/account/findId.js"></script>
+</body>
+</html>

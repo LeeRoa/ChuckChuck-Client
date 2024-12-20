@@ -16,8 +16,8 @@ gnbMenus.forEach((menu) => {
 // 헤더 모달창
 const inviteIcon = document.querySelector(".gnb-icon.invite")
 const alarmIcon = document.querySelector(".gnb-icon.alarm")
-const inviteModal = document.getElementById("invite-modal")
-const alarmModal = document.getElementById("alarm-modal")
+const inviteModal = document.getElementById("inviteModal")
+const alarmModal = document.getElementById("alarmModal")
 const modalClose = document.querySelectorAll(".close-modal")
 
 let icons = [inviteIcon, alarmIcon];
