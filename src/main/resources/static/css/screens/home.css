@@ -1,16 +1,20 @@
 #main-container {
     display: grid;
-    grid-template-columns: minmax(680px, 1fr) 640px;
-    gap: 40px;
+    grid-template-columns: repeat(2, minmax(668px, 1fr));
+    gap: 24px;
     padding-top: 32px;
 }
 
 .dashboard-box {
-    height: fit-content;
+    /*height: fit-content;*/
     padding: 16px;
     border-radius: 20px;
     background-color: var(--gray-100);
     box-shadow: var(--main-shadow);
+}
+
+.dashboard-box.electric, .dashboard-box.schedule {
+    height: 369px;
 }
 
 .dashboard-box.white {
@@ -64,10 +68,7 @@
     border-bottom: 1px solid var(--gray-200);
 }
 
-.electric_card:last-child, .contents-card:last-child { margin-bottom: 0; }
-.contents-card:last-child {
-    border-bottom: none;
-}
+.electric-card:last-child, .contents-card:last-child { margin-bottom: 0; }
 
 .list-wrap {
     display: flex;
@@ -111,10 +112,54 @@
     content: '';
     width: 1px;
     height: 19px;
+    top: 1px;
     background-color: var(--gray-300);
 }
 .writer-info p::before { left: -6px; }
 .writer-info p::after { right: -6px; }
+
+/* --------------------------------------------------------------- */
+/* 스케줄 */
+.schedule-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+.schedule-card {
+    width: 100%;
+    height: 280px;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: var(--main-bg-white);
+}
+
+.calender-card {
+    width: 100%;
+    max-width: 300px;
+}
+
+.schedule-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 9px 16px;
+}
+
+.content-list {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.content-list p { font-weight: var(--medium-weight); }
+
+.cal-color {
+    width: 4px;
+    height: 14px;
+    background-color: var(--main-bg-color);
+    border-radius: 4px;
+}
 
 /* --------------------------------------------------------------- */
 
@@ -126,7 +171,8 @@
 }
 
 .dashboard-box.attendance {
-    width: 312px;
+    width: 100%;
+    max-width: 312px;
 }
 
 .timer {
@@ -154,5 +200,17 @@
 
 /* 휴가현황 */
 .vacation {
-    width: 340px;
+    width: 100%;
+    min-width: 340px;
 }
+
+.contents-card.vacation {
+    width: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contents-card.vacation .writer-name { padding: 0; }
+.contents-card.vacation .writer-name span { font-size: var(--body-sm-font-size); }

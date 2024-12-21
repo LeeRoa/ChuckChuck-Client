@@ -104,6 +104,7 @@ nav ul {
     box-shadow: var(--main-shadow);
     overflow: hidden;
     display: none;
+    z-index: 100;
 }
 
 .invite-modal { right: 130px; }

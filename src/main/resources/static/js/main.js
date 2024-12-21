@@ -52,3 +52,26 @@ modalClose.forEach((btn) => {
         })
     })
 })
+
+// 메인 - 출퇴근 관리
+const today = document.querySelector(".today");
+const currentTime = document.querySelector(".current-time");
+const punchInBtn = document.querySelector(".punch-in");
+
+const printDate = () => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const week = date.getDay();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    const second = date.getSeconds();
+
+    let weekdays = ['일', '월', '화', '수', '목', '금', '토']
+
+    today.innerText = `${year}년 ${month}월 ${day}일(${weekdays[week]})`;
+    currentTime.innerText = `${hour}:${minute}:${second}`;
+}
+
+printDate();
