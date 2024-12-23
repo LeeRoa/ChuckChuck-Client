@@ -4,6 +4,8 @@
       layout:decorate="~{common/layouts/baseLayout}">
 <div layout:fragment="content" class="inner">
     <div id="main-container">
+
+        <!--  전자결재  -->
         <div class="dashboard-box electric">
             <div class="title-bar">
                 <div class="title-left">
@@ -31,6 +33,8 @@
                 </div>
             </div>
         </div>
+
+        <!--  스케줄  -->
         <div class="dashboard-box schedule">
             <div class="title-bar">
                 <div class="title-left">
@@ -41,6 +45,29 @@
             </div>
             <div class="schedule-container">
                 <div class="schedule-card calender-card">
+                    <div class="calender-head">
+                        <button id="prev-btn">
+                            <img src="/imgs/ic_move_in.svg" alt="화살표">
+                        </button>
+                        <div class="month-year caption-xs font-bold">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <button id="next-btn">
+                            <img src="/imgs/ic_move_in.svg" alt="화살표">
+                        </button>
+                    </div>
+                    <ul class="weekday caption-xxs">
+                        <li>SUN</li>
+                        <li>MON</li>
+                        <li>TUE</li>
+                        <li>WED</li>
+                        <li>THU</li>
+                        <li>FRI</li>
+                        <li>SAT</li>
+                    </ul>
+                    <div class="days-container">
+                    </div>
                 </div>
                 <div class="schedule-card">
                     <div class="schedule-content">
@@ -69,6 +96,8 @@
                 </div>
             </div>
         </div>
+
+        <!--  공지사항  -->
         <div class="dashboard-box white">
             <div class="title-bar">
                 <div class="title-left">
@@ -85,8 +114,36 @@
                     <p>2024.12.24(금) 09:42</p>
                 </div>
             </div>
+            <div class="contents-card">
+                <div class="list-title caption-xs font-bold">
+                    최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용
+                </div>
+                <div class="write-date caption-xs font-regular">
+                    <p>2024.12.24(금) 09:42</p>
+                </div>
+            </div>
+            <div class="contents-card">
+                <div class="list-title caption-xs font-bold">
+                    최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용
+                </div>
+                <div class="write-date caption-xs font-regular">
+                    <p>2024.12.24(금) 09:42</p>
+                </div>
+            </div>
+            <div class="contents-card">
+                <div class="list-title caption-xs font-bold">
+                    최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용
+                </div>
+                <div class="write-date caption-xs font-regular">
+                    <p>2024.12.24(금) 09:42</p>
+                </div>
+            </div>
         </div>
+
+        <!--  출퇴근 및 휴가현황  -->
         <div class="status-container">
+
+            <!--  출퇴근관리  -->
             <div class="dashboard-box white attendance">
                 <div class="title-bar">
                     <div class="title-left">
@@ -103,6 +160,8 @@
                     <span>출근하기</span>
                 </button>
             </div>
+
+            <!--  휴가현황  -->
             <div class="dashboard-box white vacation">
                 <div class="title-bar">
                     <div class="title-left">
@@ -127,4 +186,5 @@
         </div>
     </div>
 </div>
+<script layout:fragment="pageScripts" src="/js/holiday.js"></script>
 </html>

@@ -1,3 +1,4 @@
+/* 태블릿 기준 */
 @media screen and (max-width: 1024px) {
      /*join, login 푸터 */
     .sign-container {
@@ -8,9 +9,12 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
     }
     .join-footer {
         height: 161px;
     }
+}
+
+/* 모니터 해상도 1920이상 일 때 (24인치~) */
+@media screen and (min-width: 1920px) {
 }

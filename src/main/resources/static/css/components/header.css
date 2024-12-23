@@ -97,7 +97,7 @@ nav ul {
 
 .invite-modal, .alarm-modal {
     position: absolute;
-    right: 20px;
+    right: 0;
     width: 280px;
     border-radius: 30px;
     background-color: var(--main-bg-white);
@@ -107,8 +107,8 @@ nav ul {
     z-index: 100;
 }
 
-.invite-modal { right: 130px; }
-.alarm-modal { right: 73px; }
+.invite-modal { margin-right: 207px; }
+.alarm-modal { margin-right: 153px; }
 
 .invite-modal.on, .alarm-modal.on {
     display: block;

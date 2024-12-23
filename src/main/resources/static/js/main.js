@@ -48,7 +48,7 @@ modalClose.forEach((btn) => {
     btn.addEventListener("click", () => {
         modals.forEach((modal) => {
             const modalClose = modal.classList.contains("on") ? inviteModal : alarmModal;
-            modalClose.classList.remove("on");
+            closeModal(modalClose)
         })
     })
 })
@@ -58,20 +58,30 @@ const today = document.querySelector(".today");
 const currentTime = document.querySelector(".current-time");
 const punchInBtn = document.querySelector(".punch-in");
 
-const printDate = () => {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const week = date.getDay();
-    const hour = date.getHours();
-    const minute = date.getMinutes();
-    const second = date.getSeconds();
+const makeTwoDigit = (num) => {
+    return String(num).padStart(2, "0");
+}
 
-    let weekdays = ['일', '월', '화', '수', '목', '금', '토']
+let date = new Date();
+let year = date.getFullYear();
+let month = makeTwoDigit(date.getMonth() + 1);
+let day = makeTwoDigit(date.getDate());
+let week = date.getDay();
 
-    today.innerText = `${year}년 ${month}월 ${day}일(${weekdays[week]})`;
+let weekdays = ['일', '월', '화', '수', '목', '금', '토']
+
+today.innerText = `${year}년 ${month}월 ${day}일(${weekdays[week]})`;
+
+
+const updateTime = () => {
+    date = new Date();
+
+    let hour = makeTwoDigit(date.getHours());
+    let minute = makeTwoDigit(date.getMinutes());
+    let second = makeTwoDigit(date.getSeconds());
+
     currentTime.innerText = `${hour}:${minute}:${second}`;
 }
 
-printDate();
+updateTime()
+setInterval(updateTime,1000)
