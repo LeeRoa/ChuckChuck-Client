@@ -109,4 +109,8 @@ public class PageController {
         return "";
     }
 
+    @PostMapping("/mainPage")
+    public String mainPage(){
+        return "redirect:/";
+    }
 }

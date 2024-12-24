@@ -1,11 +1,25 @@
 function onLogin(){
-    const loginID = $('#loginForm [name="loginID"]');
-    const password = $('#loginForm [name="password"]');
+    const loginID = $('#loginForm [name="empEmail"]').val().trim();
+    const password = $('#loginForm [name="empPw"]').val().trim();
     const errorMessage = $('.message.error')
     errorMessage.removeClass('on')
-    if(loginID.val().trim()==="" || password.val().trim()==="") {
+    if(loginID==="" || password==="") {
         errorMessage.addClass('on')
         return;
     }
-    $('#loginForm').submit();
+
+    $.ajax({
+        type: 'POST',
+        url: '/loginProcess',
+        data: {empEmail: loginID, empPw: password},
+        success : function(data) {
+            if(data === "0"){
+                $('#loginForm').submit();
+            }else{
+                errorMessage.addClass('on');
+            }
+
+        }
+    });
+
 }

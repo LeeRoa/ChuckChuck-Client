@@ -29,19 +29,14 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         User user = (User)userDetailsService.loadUserByUsername(loginID);
 
-        System.out.println("user.getLoginID() = "+user.getLoginID());
+        System.out.println("user.getLoginID() = "+user.getUsername());
         System.out.println("user.getPassword() = "+user.getPassword());
         System.out.println("user.getAuthorities(); = "+user.getAuthorities());
 
 
         // 존재하지 않는 아이디일 시
-        if (!loginID.equals(user.getLoginID())) {
-            throw new InternalAuthenticationServiceException(loginID);
-        }else{
-            // 패스워드가 틀렸을 시
-            if (!matchPassword(password, user.getPassword())) {
-                throw new BadCredentialsException(loginID);
-            }
+        if (!loginID.equals(user.getUsername()) || !matchPassword(password, user.getPassword())) {
+            throw new BadCredentialsException(loginID);
         }
 
         return new UsernamePasswordAuthenticationToken(loginID, password, user.getAuthorities());

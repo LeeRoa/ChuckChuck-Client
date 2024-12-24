@@ -1,5 +1,7 @@
 package com.client.chuck.config;
 
+import com.client.chuck.handler.LoginAuthenticationFailHandler;
+import com.client.chuck.handler.LoginAuthenticationSuccessHandler;
 import com.client.chuck.provider.CustomAuthenticationProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -35,13 +37,10 @@ public class SpringSecurityConfig {
                 .loginPage("/login")
                 .loginProcessingUrl("/loginProcess")
                 .defaultSuccessUrl("/", true)
-                .failureUrl("/sample")
-                .usernameParameter("loginID")
-                .passwordParameter("password")
-                /* TODO 필요시 추후 정의, 클래스는 생성 해놓음
-                    .successHandler(new LoginAuthenticationSuccessHandler())
-                    .failureHandler(new LoginAuthenticationFailHandler())
-                */
+                .usernameParameter("empEmail")
+                .passwordParameter("empPw")
+                .successHandler(new LoginAuthenticationSuccessHandler())
+                .failureHandler(new LoginAuthenticationFailHandler())
 
                 //logout setting
                 /* TODO LOGOUT 설정

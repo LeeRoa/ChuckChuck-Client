@@ -12,10 +12,9 @@ import java.util.Collection;
 @NoArgsConstructor
 @Builder
 @Data
-@ToString
 public class User implements UserDetails {
-    private String loginID;
-    private String password;
+    private String empEmail;
+    private String empPw;
     private String role;
 
 
@@ -29,8 +28,13 @@ public class User implements UserDetails {
     }
 
     @Override
+    public String getPassword() {
+        return empPw;
+    }
+
+    @Override
     public String getUsername() {
-        return null;
+        return empEmail ;
     }
 
     @Override
