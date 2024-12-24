@@ -2,9 +2,6 @@ package com.client.chuck.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +14,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
-
 
 @Slf4j
 @Controller
@@ -33,6 +28,11 @@ public class PageController {
     @GetMapping("/sample")
     public String sample() {
         return "sample";
+    }
+
+    @GetMapping("/404")
+    public String errorPage() {
+        return "404";
     }
 
     @GetMapping("/")
@@ -75,6 +75,11 @@ public class PageController {
     @GetMapping("/join/verify-email")
     public String verifyEmail() {
         return "account/verify-email";
+    }
+
+    @GetMapping("/join/request-join")
+    public String requestJoin() {
+        return "account/request-join";
     }
 
     @GetMapping("/login")

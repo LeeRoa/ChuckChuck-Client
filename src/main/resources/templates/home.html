@@ -15,23 +15,26 @@
                 </div>
                 <a href="" class="show-all">전체보기</a>
             </div>
-            <div class="electric-card">
-                <p class="list-title caption-xs font-bold">최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자
-                    확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용</p>
-                <div class="list-right">
-                    <div class="writer-info">
-                        <p class="caption-xs font-regular">2024.12.24(금) 09:42</p>
-                        <div class="writer-name">
-                            <div class="avatar-wrap">
-                                <img src="/imgs/202301261737390.jpg" alt="" class="avatar">
-                                <span class="first-name">김</span>
-                            </div>
-                            <span class="caption-xs font-medium">김지훈</span>
-                        </div>
-                    </div>
-                    <a href="" class="show-detail caption-xxs font-medium">자세히 보기 &gt;</a>
-                </div>
+            <div class="card-wrap">
+<!--                <div class="electric-card">-->
+<!--                    <p class="list-title caption-xs font-bold">최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자-->
+<!--                        확인용 최대 표시 글자 확인용 최대 표시 글자 확인용 최대 표시 글자 확인용</p>-->
+<!--                    <div class="list-right">-->
+<!--                        <div class="writer-info">-->
+<!--                            <p class="caption-xs font-regular">2024.12.24(금) 09:42</p>-->
+<!--                            <div class="writer-name">-->
+<!--                                <div class="avatar-wrap">-->
+<!--                                    <img src="/imgs/202301261737390.jpg" alt="" class="avatar">-->
+<!--                                    <span class="first-name">김</span>-->
+<!--                                </div>-->
+<!--                                <span class="caption-xs font-medium">김지훈</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <a href="" class="show-detail caption-xxs font-medium">자세히 보기 &gt;</a>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
+            <div class="empty-message">진행중인 결재가 없습니다.</div>
         </div>
 
         <!--  스케줄  -->
@@ -69,7 +72,7 @@
                     <div class="days-container">
                     </div>
                 </div>
-                <div class="schedule-card">
+                <div class="schedule-card schedule-list">
                     <div class="schedule-content">
                         <div class="schedule-header caption-xs font-bold">
                             12월 9일
@@ -170,21 +173,28 @@
                     </div>
                     <a href="" class="show-all">전체보기</a>
                 </div>
-                <div class="contents-card vacation">
-                    <div class="writer-name">
-                        <div class="avatar-wrap">
-                            <img src="/imgs/202301261737390.jpg" alt="" class="avatar">
-                            <span class="first-name">최</span>
-                        </div>
-                        <span class="caption-xs font-medium">최수종</span>
-                    </div>
-                    <div class="write-date caption-xs font-regular">
-                        <p>24.12.14~24.12.17</p>
-                    </div>
+                <div class="card-wrap">
+<!--                    <div class="contents-card vacation">-->
+<!--                        <div class="writer-name">-->
+<!--                            <div class="avatar-wrap">-->
+<!--                                <img src="/imgs/202301261737390.jpg" alt="" class="avatar">-->
+<!--                                <span class="first-name">최</span>-->
+<!--                            </div>-->
+<!--                            <span class="caption-xs font-medium">최수종</span>-->
+<!--                        </div>-->
+<!--                        <div class="write-date caption-xs font-regular">-->
+<!--                            <p>24.12.14~24.12.17</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
+                <div class="empty-message">휴가 중인 인원이 없습니다.</div>
             </div>
         </div>
     </div>
 </div>
-<script layout:fragment="pageScripts" src="/js/holiday.js"></script>
+
+<th:block layout:fragment="pageScripts">
+    <script src="/js/home.js"></script>
+    <script src="/js/calender.js"></script>
+</th:block>
 </html>

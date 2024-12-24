@@ -39,21 +39,18 @@ let dayWrap;
 let dateNumSpan = "";
 let dotSpan = "";
 
-date = new Date();
-
-let currYear = date.getFullYear()
-let currMonth = date.getMonth() + 1;
+let tdate = new Date();
+//
+// let currYear = date.getFullYear()
+// let currMonth = date.getMonth() + 1;
 
 const monthArr = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
-const printDates = (year, month) => {
-    yearTxt.innerText = year;
-    monthTxt.innerText = monthArr[month];
-}
-
-const drawCalender = async (year, month) => {
-    year = year !== undefined ? year : currYear;
-    month = month !== undefined ? month - 1 : currMonth;
+const drawCalender = async () => {
+    // year = year !== undefined ? year : currYear;
+    // month = month !== undefined ? month - 1 : currMonth;
+    const year = tdate.getFullYear();
+    const month = tdate.getMonth();
 
     // 현재 월
     let currDate = new Date(year, month, 1);
@@ -109,10 +106,8 @@ const drawCalender = async (year, month) => {
             if (i === 0 && k < currDay) {
                 const prevDates = getLastWeekPreMonth(year, month)
                 if (preMonthIndex === k) {
-                    const prevYear = prevDates[k].getFullYear();
-                    const prevMonth = prevDates[k].getMonth() + 1;
                     const prevDate = prevDates[k].getDate();
-                    const fullPrevDate = `${prevYear}${makeTwoDigit(prevMonth)}${makeTwoDigit(prevDate)}`
+                    const fullPrevDate = makeFullDate(prevDates[k])
                     printHolidays(prevMonthHolidays, fullPrevDate)
                     dayWrap.classList.add("prev-day")
                     dateNumSpan.innerText = prevDate
@@ -121,10 +116,8 @@ const drawCalender = async (year, month) => {
             } else if (dateNum > lastDate) {
                 const nextDates = getFirstWeekNextMonth(year, month)
                 if (nextMonthIndex < nextDates.length) {
-                    const nextYear = nextDates[nextMonthIndex].getFullYear()
-                    const nextMonth = nextDates[nextMonthIndex].getMonth()+1;
                     const nextDate = nextDates[nextMonthIndex].getDate();
-                    const fullNextDate = `${nextYear}${makeTwoDigit(nextMonth)}${makeTwoDigit(nextDate)}`
+                    const fullNextDate = makeFullDate(nextDates[nextMonthIndex])
                     printHolidays(nextMonthHolidays, fullNextDate)
                     dayWrap.classList.add("next-day")
                     dateNumSpan.textContent = nextDate
@@ -181,12 +174,8 @@ const printHolidays = (holiday, date) => {
 }
 
 const getPrevMonth = async () => {
-    currMonth -= 1;
-    if (currMonth === 0) {
-        currMonth = 12;
-        currYear -= 1;
-    }
-    await drawCalender(currYear, currMonth)
+    tdate.setMonth(tdate.getMonth() - 1)
+    await drawCalender()
 }
 
 const getLastWeekPreMonth = (year, month) => {
@@ -214,12 +203,8 @@ const getLastWeekPreMonth = (year, month) => {
 }
 
 const getNextMonth = async () => {
-    currMonth += 1;
-    if (currMonth === 13) {
-        currMonth = 1;
-        currYear += 1;
-    }
-    await drawCalender(currYear, currMonth)
+    tdate.setMonth(tdate.getMonth() + 1)
+    await drawCalender()
 }
 
 const getFirstWeekNextMonth = (year, month) => {
@@ -241,7 +226,22 @@ const getFirstWeekNextMonth = (year, month) => {
     return nextDays;
 }
 
-drawCalender(currYear, currMonth)
+const makeFullDate = (date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    return `${year}${makeTwoDigit(month)}${makeTwoDigit(day)}`
+}
+
+const printDates = (year, month) => {
+    yearTxt.innerText = year;
+    monthTxt.innerText = monthArr[month];
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    await drawCalender()
+})
 
 prevBtn.addEventListener("click", getPrevMonth)
 nextBtn.addEventListener("click", getNextMonth)

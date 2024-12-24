@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="~{common/fragments/config :: configFragment}"></th:block>
+<body>
+<div class="sign-container">
+    <div class="title-head">
+        <h1 class="title-xl font-bold join">가입요청 보내기</h1>
+        <p>해당 정보로 회사에 가입요청을 보내시겠습니까?</p>
+    </div>
+    <form action="" id="joinForm" class="result-form">
+        <div class="result-box join">
+            <span>rlawlgh486@naver.com</span>
+            <span>김지호</span>
+        </div>
+    </form>
+    <button class="primary-btn long" form="joinForm">
+        <span>가입 요청 보내기</span>
+    </button>
+    <a href="/join/set-password" class="text-btn back">돌아가기</a>
+</div>
+<th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
+
+<script layout:fragment="pageScripts" src="/js/account/findId.js"></script>
+</body>
+</html>

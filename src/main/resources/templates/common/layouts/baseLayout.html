@@ -12,11 +12,11 @@
 
 <th:block th:insert="~{common/fragments/footer :: footerFragment}"></th:block>
 
-<th:block layout:fragment="pageScripts">
-    <!-- 페이지별 js 영역 -->
-</th:block>
 <th:block th:replace="~{common/fragments/scripts :: scriptsFragment}">
     <!-- 공통 js 들어오는 곳 -->
+</th:block>
+<th:block layout:fragment="pageScripts">
+    <!-- 페이지별 js 영역 -->
 </th:block>
 </body>
 

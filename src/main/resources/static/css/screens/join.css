@@ -89,7 +89,7 @@ label[for="birthDate"]::after {
     top: 25px;
     right: 24px;
     font-size: var(--body-md-font-size);
-    font-weight: var(--medium-weight);
+    font-weight: var(--medium-weight-500);
     color: var(--gray-500);
 }
 label[for="birthMonth"]::after { content: "월"; }
@@ -140,3 +140,14 @@ label[for="birthDate"]::after { content: "일"; }
 .message.code { color: var(--red) }
 
 .resend-btn { text-decoration: underline; }
+
+
+/* ---------------------------------------------------------- */
+
+/* 가입 결과 */
+.title-head { margin-bottom: 53px; }
+.result-form { margin-bottom: 111px }
+.result-box.join { margin: initial }
+
+
+/* ---------------------------------------------------------- */

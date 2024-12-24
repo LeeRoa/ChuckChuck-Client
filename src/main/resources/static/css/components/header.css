@@ -19,7 +19,10 @@ nav, .nav-left {
     height: 28px;
     margin-right: 31px;
 }
+
 .gnb-logo img { height: 100%; }
+
+.tab-menu-btn { display: none; }
 
 nav ul {
     display: flex;
@@ -34,7 +37,7 @@ nav ul {
     background-color: var(--main-bg-white);
     line-height: 27px;
     font-size: var(--body-md-font-size);
-    font-weight: var(--bold-weight);
+    font-weight: var(--bold-weight-700);
     letter-spacing: var(--font-letterspacing-2);
     cursor: pointer;
 }
@@ -84,7 +87,7 @@ nav ul {
 .avatar-wrap span {
     position: absolute;
     font-size: var(--body-md-font-size);
-    font-weight: var(--bold-weight);
+    font-weight: var(--bold-weight-700);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -114,16 +117,14 @@ nav ul {
     display: block;
 }
 
-.modal-inner{
+.modal-inner {
+    height: 294px;
     -ms-overflow-style: none;
+    overflow: auto;
+    padding: 10px;
 }
 .modal-inner::-webkit-scrollbar{
     display:none;
-}
-
-.modal-inner {
-    height: 294px;
-    overflow: auto;
 }
 
 .modal-inner.alarm {
@@ -141,7 +142,7 @@ nav ul {
 
 .modal-content {
     position: relative;
-    padding: 24px 32px;
+    padding: 14px 16px;
 }
 .modal-content:not(:last-child)::after {
     position: absolute;
@@ -196,7 +197,7 @@ nav ul {
     background-color: var(--main-bg-color);
     color: var(--main-bg-white);
     font-size: var(--caption-xxs-font-size);
-    font-weight: var(--medium-weight);
+    font-weight: var(--medium-weight-500);
 }
 
 .modal-btn.cancel {

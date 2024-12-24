@@ -73,7 +73,7 @@ input[type=number] {
     color: var(--main-bg-white);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
     font-size: var(--body-md-font-size);
-    font-weight: var(--bold-weight);
+    font-weight: var(--bold-weight-700);
 }
 
 .primary-btn img {
@@ -172,3 +172,24 @@ label:not([for^="birth"]) { cursor: pointer; }
     background-image: url("/imgs/check_box_rounded.svg");
     transition: background-image .3s ease-in-out;
 }
+
+/* --------------------------------------------------------------- */
+
+/* 404page */
+.page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    text-align: center;
+}
+
+.page-container .head { color: var(--main-bg-color); }
+
+.page-container .head h1 { font-size: 128px; }
+.page-container .head h3, .page-container p { font-size: 29px; }
+.page-container p { margin-bottom: 71px; }
+
+/* --------------------------------------------------------------- */

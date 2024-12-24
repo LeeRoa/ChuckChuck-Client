@@ -29,15 +29,15 @@
     --caption-xxs-font-size: 12px;
 
     /* 두께 */
-    --thin-weight: 100;
-    --extraLight-weight: 200;
-    --light-weight: 300;
-    --regular-weight: 400;
-    --medium-weight: 500;
-    --semibold-weight: 600;
-    --bold-weight: 700;
-    --extraBold-weight: 800;
-    --heady-weight: 900;
+    --thin-weight-100: 100;
+    --extraLight-weight-200: 200;
+    --light-weight-300: 300;
+    --regular-weight-400: 400;
+    --medium-weight-500: 500;
+    --semibold-weight-600: 600;
+    --bold-weight-700: 700;
+    --extraBold-weight-800: 800;
+    --heady-weight-900: 900;
 
     /* 이펙트 */
     --main-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);

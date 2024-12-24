@@ -1,5 +1,7 @@
 /* 태블릿 기준 */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1439px) {
+    .inner { padding: 0 24px 40px; }
+
      /*join, login 푸터 */
     .sign-container {
         height: 100%;
@@ -12,6 +14,22 @@
     }
     .join-footer {
         height: 161px;
+    }
+
+    /* header */
+    nav { padding: 14px 24px; }
+    nav ul, .gnb-icon.invite {
+        display: none;
+    }
+    .tab-menu-btn { display: block; }
+    .alarm-modal { margin-right: 192px; }
+
+    /* 홈 */
+    #main-container {
+        min-width: 672px;
+        display: flex;
+        flex-direction: column;
+        padding-top: 40px;
     }
 }
 

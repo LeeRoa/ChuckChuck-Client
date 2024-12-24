@@ -4,15 +4,15 @@
 
 /* 폰트설정 */
 .font-bold {
-    font-weight: var(--bold-weight);
+    font-weight: var(--bold-weight-700);
 }
 
 .font-medium {
-    font-weight: var(--medium-weight);
+    font-weight: var(--medium-weight-500);
 }
 
 .font-regular {
-    font-weight: var(--regular-weight);
+    font-weight: var(--regular-weight-400);
 }
 
 .display  {
