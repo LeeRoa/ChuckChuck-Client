@@ -1,0 +1,29 @@
+/* 회원가입양식 푸터 */
+.join-footer { height: 75px; }
+
+.terms-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.terms-list li a {
+    color: var(--gray-700);
+}
+
+.terms-list .middle-menu { position: relative; }
+
+.terms-list .middle-menu::before,
+.terms-list .middle-menu::after {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 16px;
+    background-color: var(--gray-700);
+}
+
+.terms-list .middle-menu::before { left: -7px; }
+.terms-list .middle-menu::after { right: -7px; }
+
+/* 메인 푸터 */

@@ -1,0 +1,190 @@
+<html lang="ko"
+      xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/baseLayout}">
+
+<div layout:fragment="content" class="inner">
+    <h3 style="font-weight: bold">buttons</h3>
+    <div>
+        <button class="primary-btn short">
+            <img src="/imgs/ic_null_object.png" alt="아이콘">
+            <span>Button</span>
+        </button>
+        <br>
+        <button class="primary-btn short secondary">
+            <img src="/imgs/ic_null_object-black.png" alt="아이콘">
+            <span>Button</span>
+        </button>
+        <br>
+        <button class="primary-btn short" disabled>
+            <img src="/imgs/ic_null_object.png" alt="아이콘">
+            <span>Button</span>
+        </button>
+        <br>
+    </div>
+    <hr>
+    <div>
+        <button class="primary-btn long">
+            <img src="/imgs/ic_null_object.png" alt="아이콘"><span>Button</span>
+        </button>
+        <br>
+        <button class="primary-btn long secondary">
+            <img src="/imgs/ic_null_object-black.png" alt="아이콘">
+            <span>Button</span>
+        </button>
+        <br>
+        <button class="primary-btn long" disabled>
+            <img src="/imgs/ic_null_object.png" alt="아이콘">
+            <span>Button</span>
+        </button>
+        <br>
+    </div>
+    <div>
+        <button class="google-login-btn">
+            <img src="/imgs/google_icon.png" alt="구글">
+            <span>구글 계정으로 로그인하기</span>
+        </button>
+    </div>
+    <div style="background-color: #8C8C8C; width: 150px; height: 60px; padding: 20px;">
+        <button class="modal-btn">
+            수락
+        </button>
+        <button class="modal-btn cancel">
+            거절
+        </button>
+    </div>
+    <hr>
+    <h3>GNB 메뉴</h3>
+    <div style="background-color: #8C8C8C; width: 300px; height: 65px; padding: 10px;">
+        <div class="gnb-menu-btn">홈</div>
+        <div class="gnb-menu-btn checked">전자결재</div>
+    </div>
+    <div style="background-color: #8C8C8C; width: 300px; height: 65px; padding: 10px;">
+        <div class="avatar-wrap">
+            <img src="/imgs/202301261737390.jpg" alt="" class="avatar">
+            <span class="first-name">김</span>
+        </div>
+    </div>
+    <hr>
+    <label for=""></label>
+    <input type="text" name="" id="" class="input-box" placeholder="텍스트는 최대 1줄 까지 입력 가능합니다.">
+    <hr>
+    <h3>헤더</h3>
+    <nav>
+        <div class="nav-left">
+            <h1 class="gnb-logo">
+                <a href=""><img src="/imgs/logo_combination.svg" alt="로고"></a>
+            </h1>
+            <ul>
+                <li><a href="" class="gnb-menu-btn checked">홈</a></li>
+                <li><a href="" class="gnb-menu-btn">전자결재</a></li>
+                <li><a href="" class="gnb-menu-btn">근태관리</a></li>
+                <li><a href="" class="gnb-menu-btn">일정관리</a></li>
+                <li><a href="" class="gnb-menu-btn">게시판</a></li>
+                <li><a href="" class="gnb-menu-btn">조직도</a></li>
+                <li><a href="" class="gnb-menu-btn">관리자</a></li>
+            </ul>
+        </div>
+        <div class="profile-menu">
+            <a href="" class="gnb-icon on invite"><img src="/imgs/gnb/ic_invite.svg" alt="초대"></a>
+            <a href="" class="gnb-icon alarm"><img src="/imgs/gnb/ic_alarm.svg" alt="알림" class="gnb-icon alarm"></a>
+            <a href="" class="avatar-wrap">
+                <img src="/imgs/202301261737390.jpg" alt="초대" class="avatar">
+                <span class="first-name">김</span>
+            </a>
+        </div>
+    </nav>
+    <hr>
+    <h1>초대모달</h1>
+    <div id="invite-modal">
+        <div class="modal-head">
+            <h3 class="caption-xs font-bold">요청</h3>
+            <a href=""><img src="/imgs/main/ic_cancle_small-24x24.svg" alt="취소"></a>
+        </div>
+        <div class="modal-inner">
+            <div class="modal-content">
+                <h3 class="content-title caption-xs">새로운 가입 요청이 있어요.</h3>
+                <div class="content-info invite caption-xxs">
+                    <p>아이디 : rlawlgh486@naver.com</p>
+                    <p>코드 : 246825</p>
+                </div>
+                <div class="modal-btn-wrap">
+                    <button class="modal-btn">
+                        수락
+                    </button>
+                    <button class="modal-btn cancel">
+                        거절
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer"></div>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <h1>알림모달</h1>
+    <div id="alarm-modal">
+        <div class="modal-head">
+            <h3 class="caption-xs font-bold">알림</h3>
+            <a href=""><img src="/imgs/main/ic_cancle_small-24x24.svg" alt="취소"></a>
+        </div>
+        <div class="modal-inner alarm">
+            <div class="modal-content">
+                <div class="content-title alarm">
+                    <p class="caption-xs alarm">카테고리</p>
+                    <span class="alarm-circle"></span>
+                </div>
+                <div class="content-info alarm caption-xs">
+                    <p>글자는 최대 2줄 까지 노출됩니다. 글자는 최대 2줄 까지 노출됩니다.글자는 최대 2줄 까지 노출됩니다.</p>
+                </div>
+                <p class="period-date caption-xxs">1달 전</p>
+            </div>
+            <div class="modal-content">
+                <div class="content-title alarm">
+                    <p class="caption-xs alarm">카테고리</p>
+                    <span class="alarm-circle"></span>
+                </div>
+                <div class="content-info alarm caption-xs">
+                    <p>글자는 최대 2줄 까지 노출됩니다. 글자는 최대 2줄 까지 노출됩니다.글자는 최대 2줄 까지 노출됩니다.</p>
+                </div>
+                <p class="period-date caption-xxs">1달 전</p>
+            </div>
+            <div class="modal-content">
+                <div class="content-title alarm">
+                    <p class="caption-xs alarm">카테고리</p>
+                    <span class="alarm-circle"></span>
+                </div>
+                <div class="content-info alarm caption-xs">
+                    <p>글자는 최대 2줄 까지 노출됩니다. 글자는 최대 2줄 까지 노출됩니다.글자는 최대 2줄 까지 노출됩니다.</p>
+                </div>
+                <p class="period-date caption-xxs">1달 전</p>
+            </div>
+            <div class="modal-content">
+                <div class="content-title alarm">
+                    <p class="caption-xs alarm">카테고리</p>
+                    <span class="alarm-circle"></span>
+                </div>
+                <div class="content-info alarm caption-xs">
+                    <p>글자는 최대 2줄 까지 노출됩니다. 글자는 최대 2줄 까지 노출됩니다.글자는 최대 2줄 까지 노출됩니다.</p>
+                </div>
+                <p class="period-date caption-xxs">1달 전</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <div id="holiday">
+        일정
+    </div>
+    <br>
+    <br>
+    <hr>
+</div>
+<script layout:fragment="pageScripts" src="/js/calender.js"></script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="~{common/fragments/config :: configFragment}"></th:block>
+<body>
+<div class="sign-container">
+    <h1 class="title-xl font-bold join">비밀번호 찾기</h1>
+    <form action="" id="findPwForm" class="find-pw-form set-bottom">
+        <div class="input-wrap">
+            <div class="findPw-wrap">
+                <label for="inputFindPw"></label>
+                <input type="email" name="" id="inputFindPw" class="input-box" placeholder="이메일">
+            </div>
+            <p class="message info">비밀번호를 찾으려는 이메일을 입력해주세요.</p>
+        </div>
+        <div class="verify-container">
+            <div class="verify-input-wrap">
+                <label for="verifyCode"></label>
+                <input type="text" name="" id="verifyCode" class="input-box" placeholder="인증번호 (숫자6자리)">
+            </div>
+            <div class="time-container">
+                <div class="code-time-wrap">
+                    <p class="message code">2분 내로 인증을 완료해주세요.</p>
+                    <p class="message code time">00:00</p>
+                </div>
+                <a href="" class="resend-btn">재전송</a>
+            </div>
+        </div>
+    </form>
+    <button class="primary-btn long" form="findPwForm">
+        <span>다음</span>
+    </button>
+    <a href="/login" class="text-btn back">돌아가기</a>
+</div>
+<th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
+
+<script layout:fragment="pageScripts" src="/js/account/findPw.js"></script>
+</body>
+</html>

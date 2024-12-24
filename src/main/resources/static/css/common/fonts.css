@@ -1,0 +1,54 @@
+/* 폰트임포트 */
+/* 프리텐다드 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* 폰트설정 */
+.font-bold {
+    font-weight: var(--bold-weight-700);
+}
+
+.font-medium {
+    font-weight: var(--medium-weight-500);
+}
+
+.font-regular {
+    font-weight: var(--regular-weight-400);
+}
+
+.display  {
+    font-size: var(--display-font-size);
+    line-height: var(--font-linehight-140);
+    letter-spacing: var(--font-letterspacing-2);
+}
+
+.title-xl {
+    font-size: var(--title-xl-font-size);
+    line-height: var(--font-linehight-140);
+}
+
+.title-lg {
+    font-size: var(--title-lg-font-size);
+    line-height: var(--font-linehight-140);
+}
+
+.body-md {
+    font-size: var(--body-md-font-size);
+    line-height: var(--font-linehight-150);
+    letter-spacing: var(--font-letterspacing-2);
+}
+
+.body-sm {
+    font-size: var(--body-sm-font-size);
+    line-height: var(--font-linehight-150);
+    letter-spacing: var(--font-letterspacing-2);
+}
+
+.caption-xs {
+    font-size: var(--caption-xs-font-size);
+    line-height: var(--font-linehight-150);
+}
+
+.caption-xxs {
+    font-size: var(--caption-xxs-font-size);
+    line-height: var(--font-linehight-150);
+}

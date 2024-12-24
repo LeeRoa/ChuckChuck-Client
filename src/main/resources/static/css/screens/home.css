@@ -1,0 +1,300 @@
+#main-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(668px, 1fr));
+    gap: 24px;
+    padding-top: 32px;
+}
+
+.empty-message {
+    height: calc(100% - 81px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--body-sm-font-size);
+    font-weight: var(--medium-weight-500);
+    color: var(--gray-600);
+}
+
+.dashboard-box {
+    padding: 16px;
+    border-radius: 20px;
+    background-color: var(--gray-100);
+    box-shadow: var(--main-shadow);
+}
+
+.dashboard-box.electric, .dashboard-box.schedule {
+    height: 369px;
+}
+
+.dashboard-box.white {
+    background-color: var(--main-bg-white);
+}
+
+.title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 8px 14px;
+}
+
+.title-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.check-electric { color: var(--main-bg-color); }
+
+.show-all {
+    display: inline-block;
+    font-size: var(--caption-xs-font-size);
+    font-weight: var(--medium-weight-500);
+    text-decoration: underline;
+    color: var(--gray-600);
+}
+
+.show-detail { color: var(--gray-600); }
+
+.electric-card, .contents-card {
+    display: grid;
+    place-content: center;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 8px;
+    padding: 14px;
+    background-color: var(--main-bg-white);
+    border-radius: 10px;
+}
+
+.electric-card { grid-template-columns: minmax(168px, 1fr) 440px; }
+
+.contents-card {
+    grid-template-columns: minmax(475px, 1fr) 133px;
+    gap: 12px;
+    height: 65px;
+    border-radius: 0;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.electric-card:last-child, .contents-card:last-child { margin-bottom: 0; }
+
+.list-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.writer-info, .writer-name {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+}
+.writer-info {
+    width: 300px;
+    justify-content: center;
+    gap: 12px;
+}
+.writer-name { gap: 4px; }
+
+.writer-info p {
+    width: 150px;
+    text-align: center;
+    position: relative;
+}
+
+.writer-info p::before,
+.writer-info p::after {
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 19px;
+    top: 1px;
+    background-color: var(--gray-300);
+}
+.writer-info p::before { left: -6px; }
+.writer-info p::after { right: -6px; }
+
+/* --------------------------------------------------------------- */
+
+/* 스케줄 공통 */
+.schedule-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.schedule-card {
+    width: 100%;
+    height: 280px;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: var(--main-bg-white);
+}
+
+/* 달력 */
+.calender-card {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.calender-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 6px;
+}
+
+.calender-head button:first-child img { transform: rotate(180deg); }
+.calender-head button { height: 16px; }
+
+.month-year span:first-child { text-transform: capitalize; }
+
+.weekday {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 12px;
+    gap: 14px;
+    font-weight: var(--medium-weight-500);
+    color: var(--gray-600);
+}
+
+.weekday-wrap {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    gap: 13px;
+}
+
+.day-wrap {
+    width: 25px;
+    height: 25px;
+    padding: 3px 0;
+    border-radius: 50px;
+    background-color: var(--main-bg-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+}
+
+.day-wrap.cal-today { background-color: var(--main-bg-color); }
+.day-wrap.cal-today .schedule-dot { background-color: var(--main-bg-white) }
+.day-wrap.cal-today .date-num { color: var(--main-bg-white) }
+.day-wrap.holiday .date-num { color: var(--holiday-red); }
+.day-wrap.holiday.cal-today .date-num { color: var(--main-bg-white) }
+
+.day-wrap.weekend .date-num,
+.day-wrap.prev-day .date-num,
+.day-wrap.next-day .date-num {
+    opacity: 0.4;
+}
+
+.date-num {
+    font-size: var(--caption-xxs-font-size);
+    font-weight: var(--medium-weight-500);
+    color: var(--gray-800);
+}
+.schedule-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--main-bg-color);
+}
+
+/* 일정목록 */
+.schedule-list { min-width: 324px; }
+.schedule-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 9px 16px;
+}
+
+.content-list {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.content-list p { font-weight: var(--medium-weight-500); }
+
+.cal-color {
+    width: 4px;
+    height: 14px;
+    background-color: var(--main-bg-color);
+    border-radius: 4px;
+}
+
+/* --------------------------------------------------------------- */
+
+/* 근태관리 */
+.status-container {
+    height: 374px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.dashboard-box.attendance {
+    width: 100%;
+    max-width: 312px;
+}
+
+.timer {
+    width: 279px;
+    height: 214px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+}
+
+.today, .status-attendance {
+    font-weight: var(--medium-weight-500);
+    color: var(--gray-700);
+}
+
+.punch-in {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* 휴가현황 */
+.vacation {
+    width: 100%;
+    min-width: 340px;
+}
+
+.contents-card.vacation {
+    width: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contents-card.vacation .writer-name { padding: 0; }
+.contents-card.vacation .writer-name span { font-size: var(--body-sm-font-size); }

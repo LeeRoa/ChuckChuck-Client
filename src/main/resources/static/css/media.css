@@ -1,0 +1,38 @@
+/* 태블릿 기준 */
+@media screen and (max-width: 1439px) {
+    .inner { padding: 0 24px 40px; }
+
+     /*join, login 푸터 */
+    .sign-container {
+        height: 100%;
+        min-height: calc(100vh - 161px);
+        margin: 0 auto;
+        padding-top: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .join-footer {
+        height: 161px;
+    }
+
+    /* header */
+    nav { padding: 14px 24px; }
+    nav ul, .gnb-icon.invite {
+        display: none;
+    }
+    .tab-menu-btn { display: block; }
+    .alarm-modal { margin-right: 192px; }
+
+    /* 홈 */
+    #main-container {
+        min-width: 672px;
+        display: flex;
+        flex-direction: column;
+        padding-top: 40px;
+    }
+}
+
+/* 모니터 해상도 1920이상 일 때 (24인치~) */
+@media screen and (min-width: 1920px) {
+}

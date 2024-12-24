@@ -1,0 +1,44 @@
+:root {
+    /* colors */
+    --main-bg-color: #FF5116;
+    --main-bg-hover-color: #F04A13;
+    --main-bg-gray-color: #9E9E9E;
+    --main-bg-white: #FFFFFF;
+    --main-bg-black: #000000;
+    --gray-800: #424242;
+    --gray-700: #616161;
+    --gray-600: #757575;
+    --gray-500: #9E9E9E;
+    --gray-400: #BDBDBD;
+    --gray-300: #E0E0E0;
+    --gray-200: #EEEEEE;
+    --gray-100: #F5F5F5;
+    --red: #ff3333;
+    --holiday-red: #FF0000;
+
+    /* 폰트 */
+    --font-linehight-140: 140%;
+    --font-linehight-150: 150%;
+    --font-letterspacing-2: -2%;
+    --display-font-size: 32px;
+    --title-xl-font-size: 24px;
+    --title-lg-font-size: 20px;
+    --body-md-font-size: 18px;
+    --body-sm-font-size: 16px;
+    --caption-xs-font-size: 14px;
+    --caption-xxs-font-size: 12px;
+
+    /* 두께 */
+    --thin-weight-100: 100;
+    --extraLight-weight-200: 200;
+    --light-weight-300: 300;
+    --regular-weight-400: 400;
+    --medium-weight-500: 500;
+    --semibold-weight-600: 600;
+    --bold-weight-700: 700;
+    --extraBold-weight-800: 800;
+    --heady-weight-900: 900;
+
+    /* 이펙트 */
+    --main-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+}
