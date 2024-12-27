@@ -59,6 +59,7 @@ public class PageController {
 
         String response = restTemplate.getForObject(uri, String.class);
 
+
         return ResponseEntity.ok(response);
     }
 
