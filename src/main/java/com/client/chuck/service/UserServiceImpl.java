@@ -6,7 +6,6 @@ import com.client.chuck.util.OpCode;
 import com.client.chuck.util.WebClientUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,7 +17,7 @@ import static com.client.chuck.util.JsonUtils.jsonToVO;
 
 @RequiredArgsConstructor
 @Service("userService")
-@SuppressWarnings({"unchecked", "unused"})
+@SuppressWarnings({"unused"})
 public class UserServiceImpl implements UserDetailsService {
 
     private final WebClientUtils webClientUtils;
@@ -29,10 +28,17 @@ public class UserServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        // TODO API 서버에 로그인 기능이 구현되면 해당 기능 사용
+
+
+        // 운영용 서버 통신
+        /*
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("empEmail",username);
         String responseMessage = webClientUtils.post(server_url, jsonObject.toJSONString());
+        */
+
+        // 개발용 서버 통신 X
+        String responseMessage = "{\"resultCode\":\"0\",\"resultMsg\":\"정상 처리\",\"empInfo\":{\"empEmail\":\"4\",\"empPw\":\"4\",\"role\":\"ROLE_USER\"}}";
         System.out.println("responseMessage = "+responseMessage);
         try {
             if((JsonUtils.jsonParser(responseMessage, OpCode.RESULT_CODE)).equals(OpCode.SUCCESS_CODE)){
