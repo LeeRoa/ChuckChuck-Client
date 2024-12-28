@@ -29,7 +29,7 @@ public class SpringSecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/**").hasRole("USER")
+                .requestMatchers("/").hasRole("USER")
                 .anyRequest().permitAll()
                 )
                 // login setting
