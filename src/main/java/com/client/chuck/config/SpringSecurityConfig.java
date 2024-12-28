@@ -41,13 +41,15 @@ public class SpringSecurityConfig {
                 .passwordParameter("empPw")
                 .successHandler(new LoginAuthenticationSuccessHandler())
                 .failureHandler(new LoginAuthenticationFailHandler())
+                .permitAll()
+                )
 
                 //logout setting
-                /* TODO LOGOUT 설정
-                 *
-                 */
-
-                .permitAll()
+                .logout(logout -> logout
+                .logoutUrl("/logoutProcess")
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
                 );
 
 
