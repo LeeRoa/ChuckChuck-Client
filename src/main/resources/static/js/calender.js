@@ -40,9 +40,6 @@ let dateNumSpan = "";
 let dotSpan = "";
 
 let tdate = new Date();
-//
-// let currYear = date.getFullYear()
-// let currMonth = date.getMonth() + 1;
 
 const monthArr = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
@@ -90,9 +87,22 @@ const drawCalender = async () => {
 
     daysContainer.innerHTML = "";
 
+    const scheduleBoard = document.querySelector(".dashboard-box.schedule");
+    const scheduleCard = document.querySelectorAll(".schedule-card");
+
     for (let i = 0; i < row; ++i) {
         const weekDayWrap = document.createElement("div")
         weekDayWrap.className = "weekday-wrap"
+        scheduleBoard.style.height = "";
+        scheduleCard.forEach(board => {
+            board.style.height = "";
+        })
+        if (row >= 6) {
+            scheduleBoard.style.height = "399px";
+            scheduleCard.forEach(board => {
+                board.style.height = "310px";
+            })
+        }
         for (let k = 0; k <= 6; ++k) {
             dayWrap = document.createElement("button")
             dayWrap.className = "day-wrap"

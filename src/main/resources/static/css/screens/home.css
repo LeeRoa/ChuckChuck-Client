@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(668px, 1fr));
     gap: 24px;
-    padding-top: 32px;
+    padding: 32px 0 40px;
 }
 
 .empty-message {
@@ -202,7 +202,6 @@
 .day-wrap.holiday .date-num { color: var(--holiday-red); }
 .day-wrap.holiday.cal-today .date-num { color: var(--main-bg-white) }
 
-.day-wrap.weekend .date-num,
 .day-wrap.prev-day .date-num,
 .day-wrap.next-day .date-num {
     opacity: 0.4;

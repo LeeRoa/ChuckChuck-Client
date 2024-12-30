@@ -2,12 +2,15 @@ const joinForm =document.getElementById("joinForm");
 const items = [...document.querySelectorAll('[name=check-agree]')];
 const checkAll = document.getElementById("allAgree");
 const nextBtn = document.getElementById("next-btn");
-const errorMessage = document.querySelector(".error-message")
+const errorMessage = document.querySelector(".message.error")
+const inputName = document.getElementById("inputName");
 const inputYear = document.getElementById("birthYear")
 const inputMonth = document.getElementById("birthMonth")
 const inputDate = document.getElementById("birthDate")
 
-let emailRegex = '^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$';
+// 특수문자
+const scRegex = /[!@#$%^&*]/;
+const trimRegex = /\s/
 
 items.forEach((item) => {
     item.onchange = () => {
@@ -49,6 +52,20 @@ const handleNumberLength = (e, length, date) => {
 const handleSubmit = (e) => {
     e.preventDefault();
 
+    errorMessage.classList.remove("on");
+
+    if (inputName.value === "") {
+        errorMessage.classList.add("on");
+        errorMessage.innerText = "이름을 입력해 주세요."
+        return
+    }
+
+    if (scRegex.test(inputName.value) || trimRegex.test(inputName.value)) {
+        errorMessage.classList.add("on");
+        errorMessage.innerText = "사용할 수 없는 이름입니다.";
+        return
+    }
+
     if (inputYear.value === "" || inputMonth.value === "" || inputDate.value === "") {
         return
     }
@@ -60,6 +77,8 @@ const handleSubmit = (e) => {
     if (inputMonth.value.length < 2 || inputDate.value.length < 2) {
         return;
     }
+
+    location.href = "/join/verify-email";
 }
 
 

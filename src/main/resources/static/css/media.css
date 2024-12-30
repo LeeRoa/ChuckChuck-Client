@@ -1,6 +1,6 @@
 /* 태블릿 기준 */
 @media screen and (max-width: 1439px) {
-    .inner { padding: 0 24px 40px; }
+    .inner { padding: 0 24px; }
 
      /*join, login 푸터 */
     .sign-container {
@@ -22,7 +22,7 @@
         display: none;
     }
     .tab-menu-btn { display: block; }
-    .alarm-modal { margin-right: 192px; }
+    .alarm-modal { margin-right: 193px; }
 
     /* 홈 */
     #main-container {
