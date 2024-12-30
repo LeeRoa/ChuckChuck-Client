@@ -26,29 +26,31 @@ public class SpringSecurityConfig {
      */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http
-//                .csrf(AbstractHttpConfigurer::disable)
-//                .authorizeHttpRequests(authorize -> authorize
-//                .requestMatchers("/**").hasRole("USER")
-//                .anyRequest().permitAll()
-//                )
-//                // login setting
-//                .formLogin(formLogin -> formLogin
-//                .loginPage("/login")
-//                .loginProcessingUrl("/loginProcess")
-//                .defaultSuccessUrl("/", true)
-//                .usernameParameter("empEmail")
-//                .passwordParameter("empPw")
-//                .successHandler(new LoginAuthenticationSuccessHandler())
-//                .failureHandler(new LoginAuthenticationFailHandler())
-//
-//                //logout setting
-//                /* TODO LOGOUT 설정
-//                 *
-//                 */
-//
-//                .permitAll()
-//                );
+        http
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(authorize -> authorize
+                .requestMatchers("/").hasRole("USER")
+                .anyRequest().permitAll()
+                )
+                // login setting
+                .formLogin(formLogin -> formLogin
+                .loginPage("/login")
+                .loginProcessingUrl("/loginProcess")
+                .defaultSuccessUrl("/", true)
+                .usernameParameter("empEmail")
+                .passwordParameter("empPw")
+                .successHandler(new LoginAuthenticationSuccessHandler())
+                .failureHandler(new LoginAuthenticationFailHandler())
+                .permitAll()
+                )
+
+                //logout setting
+                .logout(logout -> logout
+                .logoutUrl("/logoutProcess")
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                );
 
 
 

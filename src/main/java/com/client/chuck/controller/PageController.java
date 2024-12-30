@@ -117,6 +117,10 @@ public class PageController {
         return "";
     }
 
+    @ResponseBody
+    @GetMapping("/logoutProcess")
+    public String logoutProcess(){ return ""; }
+
     @PostMapping("/mainPage")
     public String mainPage(){
         return "redirect:/";
