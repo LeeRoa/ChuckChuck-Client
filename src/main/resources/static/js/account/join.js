@@ -52,32 +52,40 @@ const handleNumberLength = (e, length, date) => {
 const handleSubmit = (e) => {
     e.preventDefault();
 
+    const userName = inputName.value
+    const birthYear = inputYear.value
+    const birthMonth = inputMonth.value
+    const birthDate = inputDate.value
+
     errorMessage.classList.remove("on");
 
-    if (inputName.value === "") {
+    if (userName === "") {
         errorMessage.classList.add("on");
         errorMessage.innerText = "이름을 입력해 주세요."
         return
     }
 
-    if (scRegex.test(inputName.value) || trimRegex.test(inputName.value)) {
+    if (scRegex.test(userName) || trimRegex.test(userName)) {
         errorMessage.classList.add("on");
         errorMessage.innerText = "사용할 수 없는 이름입니다.";
         return
     }
 
-    if (inputYear.value === "" || inputMonth.value === "" || inputDate.value === "") {
+    if (birthYear === "" || birthMonth === "" || birthDate === "") {
         return
     }
 
-    if (inputYear.value.length < 4) {
+    if (birthYear.length < 4) {
         return
     }
 
-    if (inputMonth.value.length < 2 || inputDate.value.length < 2) {
+    if (birthMonth.length < 2 || birthDate.length < 2) {
         return;
     }
-
+    sessionStorage.setItem("userName", userName)
+    sessionStorage.setItem("birthYear", birthYear)
+    sessionStorage.setItem("birthMonth", birthMonth)
+    sessionStorage.setItem("birthDate", birthDate)
     location.href = "/join/verify-email";
 }
 

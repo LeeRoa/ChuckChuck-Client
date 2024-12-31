@@ -1,7 +1,7 @@
 package com.client.chuck.controller;
 
 import com.client.chuck.service.ApiService;
-import groovy.util.logging.Slf4j;
+import lombok.extern.slf4j.Slf4j;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

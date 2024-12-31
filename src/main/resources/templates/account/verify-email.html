@@ -6,7 +6,7 @@
 <body>
 <div class="sign-container">
     <h1 class="title-xl font-bold join">아이디 생성</h1>
-    <form action="" id="joinForm" class="email-form">
+    <form action="" id="emailForm" class="email-form">
         <div class="input-wrap">
             <div class="email-wrap">
                 <label for="inputEmail"></label>
@@ -23,13 +23,13 @@
             <div class="time-container">
                 <div class="code-time-wrap">
                     <p class="message code">2분 내로 인증을 완료해주세요.</p>
-                    <p class="message code time">00:00</p>
+                    <p class="message code time">02:00</p>
                 </div>
-                <a href="" class="resend-btn">재전송</a>
+                <button id="resendBtn" class="resend-btn">재전송</button>
             </div>
         </div>
     </form>
-    <button class="primary-btn long" form="joinForm" disabled>
+    <button class="primary-btn long" form="emailForm" disabled>
         <span>전송하기</span>
     </button>
     <a href="/join" class="text-btn back">돌아가기</a>
