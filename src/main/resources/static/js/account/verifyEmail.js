@@ -20,8 +20,6 @@ const drawTwoMinute = () => {
     if (totalSeconds !== 0) {
         totalSeconds--;
 
-        console.log(totalSeconds);
-
         const min = Math.floor(totalSeconds / 60);
         const sec = totalSeconds % 60;
 
@@ -50,7 +48,7 @@ const handleBtnDisabled = (e) => {
 };
 
 const handleResendCode = () => {
-    // 시간과 관계 없이 재전송 누르면 코드 재발송
+    // 남은시간과 관계 없이 재전송 누르면 코드 재발송
     alert("인증번호가 재 전송 되었습니다.");
 
     code = "789021";
@@ -60,10 +58,12 @@ const handleResendCode = () => {
     }
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!emailRegex.test(inputEmail.value)) {
+    const empEmail = inputEmail.value;
+
+    if (!emailRegex.test(empEmail)) {
         errorMessage1.classList.add("error");
         errorMessage1.classList.add("on");
         errorMessage1.innerText = "이메일 형식이 아닙니다.";
@@ -98,10 +98,17 @@ const handleSubmit = (e) => {
     }
 
     if (verifyCode.value.trim() === code) {
-        sessionStorage.setItem("userEmail", inputEmail.value);
-        location.href = "/join/set-password";
+        await getExistEmail(empEmail)
     }
 };
+
+const getExistEmail = async (empEmail) => {
+    const response = await fetch(`/emp/${empEmail}`, {
+        method: "GET",
+        headers: {contentType: "application/json"},
+    })
+    console.log(response)
+}
 
 inputEmail.addEventListener("input", handleBtnDisabled);
 emailForm.addEventListener("submit", handleSubmit);

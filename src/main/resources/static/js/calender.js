@@ -1,8 +1,8 @@
-const monthTxt = document.querySelector(".month-year span:first-child")
-const yearTxt = document.querySelector(".month-year span:last-child")
-const prevBtn = document.getElementById("prev-btn")
-const nextBtn = document.getElementById("next-btn")
-const daysContainer = document.querySelector(".days-container")
+const monthTxt = document.querySelector(".month-year span:first-child");
+const yearTxt = document.querySelector(".month-year span:last-child");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+const daysContainer = document.querySelector(".days-container");
 
 let holidaysCache = {}; // 공휴일 정보를 저장할 캐시 객체
 
@@ -17,21 +17,43 @@ const getHolidays = async (year, month) => {
     const response = await fetch(`/api/holiday-data?year=${year}&month=${month}`, {
         method: "GET",
         headers: {"Content-Type": "application/json"},
-    })
-    if (response.status === 200) {
-        const data = await response.json()
-        const {response: {header: {resultCode}}} = data;
-        if (resultCode === "00") {
-            const {response: {body: {items: {item}}}} = data;
-            // 캐시 저장
-            holidaysCache[cacheKey] = item;
-            return item;
-        } else if (resultCode === "30") {
-            console.log("인증키오류")
+    });
+    try {
+        if (response.status === 200) {
+            const data = await response.json();
+            const {response: {header: {resultCode}}} = data;
+            if (resultCode === "00") {
+                const {response: {body: {items: {item}}}} = data;
+                // 캐시 저장
+                holidaysCache[cacheKey] = item;
+                return item;
+            } else if (resultCode === "30") {
+                console.log("인증키오류");
+            }
+        } else {
+            console.log("연결오류");
         }
-    } else {
-        console.log("연결오류")
+    } catch (error) {
+        console.error(error);
     }
+
+    return []; // 에러가 발생한 경우 빈 배열 반환
+};
+
+const getPrevAndNextMonth = async (year, month) => {
+    // 이전 달, 다음 달의 공휴일 정보 한 번에 가져오기
+    const prevYear = month === 0 ? year - 1 : year;
+    const prevMonth = month === 0 ? 12 : month;
+    const nextYear = month === 11 ? year + 1 : year;
+    const nextMonth = month === 11 ? 1 : month + 2;
+
+    const holidays = await Promise.all([
+        getHolidays(year, month + 1), // 현재 달
+        getHolidays(prevYear, prevMonth), // 이전 달
+        getHolidays(nextYear, nextMonth), // 다음 달
+    ]);
+
+    return holidays;
 }
 
 const isLeapYear = (y) => (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
@@ -64,17 +86,7 @@ const drawCalender = async () => {
     // 7일 만들기
     let row = Math.ceil((currDay + lastDate) / 7);
 
-    // 이전 달, 다음 달의 공휴일 정보 한 번에 가져오기
-    const prevYear = month === 0 ? year - 1 : year;
-    const prevMonth = month === 0 ? 12 : month;
-    const nextYear = month === 11 ? year + 1 : year;
-    const nextMonth = month === 11 ? 1 : month + 2;
-
-    const holidays = await Promise.all([
-        getHolidays(year, month + 1), // 현재 달
-        getHolidays(prevYear, prevMonth), // 이전 달
-        getHolidays(nextYear, nextMonth), // 다음 달
-    ]);
+    const holidays = await getPrevAndNextMonth(year, month);
 
     const currentHolidays = holidays[0];
     const prevMonthHolidays = holidays[1];
@@ -91,53 +103,53 @@ const drawCalender = async () => {
     const scheduleCard = document.querySelectorAll(".schedule-card");
 
     for (let i = 0; i < row; ++i) {
-        const weekDayWrap = document.createElement("div")
-        weekDayWrap.className = "weekday-wrap"
+        const weekDayWrap = document.createElement("div");
+        weekDayWrap.className = "weekday-wrap";
         scheduleBoard.style.height = "";
         scheduleCard.forEach(board => {
             board.style.height = "";
-        })
+        });
         if (row >= 6) {
             scheduleBoard.style.height = "399px";
             scheduleCard.forEach(board => {
                 board.style.height = "310px";
-            })
+            });
         }
         for (let k = 0; k <= 6; ++k) {
-            dayWrap = document.createElement("button")
-            dayWrap.className = "day-wrap"
-            dateNumSpan = document.createElement("span")
-            dateNumSpan.className = "date-num"
-            dotSpan = document.createElement("span")
-            dotSpan.className = "schedule-dot"
+            dayWrap = document.createElement("button");
+            dayWrap.className = "day-wrap";
+            dateNumSpan = document.createElement("span");
+            dateNumSpan.className = "date-num";
+            dotSpan = document.createElement("span");
+            dotSpan.className = "schedule-dot";
 
-            weekDayWrap.appendChild(dayWrap)
-            dayWrap.appendChild(dateNumSpan)
+            weekDayWrap.appendChild(dayWrap);
+            dayWrap.appendChild(dateNumSpan);
             if (i === 0 && k < currDay) {
-                const prevDates = getLastWeekPreMonth(year, month)
+                const prevDates = getLastWeekPreMonth(year, month);
                 if (preMonthIndex === k) {
                     const prevDate = prevDates[k].getDate();
-                    const fullPrevDate = makeFullDate(prevDates[k])
-                    printHolidays(prevMonthHolidays, fullPrevDate)
-                    dayWrap.classList.add("prev-day")
-                    dateNumSpan.innerText = prevDate
+                    const fullPrevDate = makeFullDate(prevDates[k]);
+                    printHolidays(prevMonthHolidays, fullPrevDate);
+                    dayWrap.classList.add("prev-day");
+                    dateNumSpan.innerText = prevDate;
                     preMonthIndex++;
                 }
             } else if (dateNum > lastDate) {
-                const nextDates = getFirstWeekNextMonth(year, month)
+                const nextDates = getFirstWeekNextMonth(year, month);
                 if (nextMonthIndex < nextDates.length) {
                     const nextDate = nextDates[nextMonthIndex].getDate();
-                    const fullNextDate = makeFullDate(nextDates[nextMonthIndex])
-                    printHolidays(nextMonthHolidays, fullNextDate)
-                    dayWrap.classList.add("next-day")
-                    dateNumSpan.textContent = nextDate
+                    const fullNextDate = makeFullDate(nextDates[nextMonthIndex]);
+                    printHolidays(nextMonthHolidays, fullNextDate);
+                    dayWrap.classList.add("next-day");
+                    dateNumSpan.textContent = nextDate;
                     nextMonthIndex++;
                 }
             } else {
                 // 입력 된 연월일
-                const enterDate = `${year}${makeTwoDigit(month+1)}${makeTwoDigit(dateNum)}`;
-                const thisDate = `${date.getFullYear()}${makeTwoDigit(date.getMonth()+1)}${makeTwoDigit(date.getDate())}`;
-                printHolidays(currentHolidays, enterDate)
+                const enterDate = `${year}${makeTwoDigit(month + 1)}${makeTwoDigit(dateNum)}`;
+                const thisDate = `${date.getFullYear()}${makeTwoDigit(date.getMonth() + 1)}${makeTwoDigit(date.getDate())}`;
+                printHolidays(currentHolidays, enterDate);
                 if (enterDate === thisDate) {
                     dayWrap.classList.add("cal-today");
                 } else {
@@ -148,17 +160,17 @@ const drawCalender = async () => {
             }
         }
 
-        daysContainer.appendChild(weekDayWrap)
+        daysContainer.appendChild(weekDayWrap);
     }
-    printDates(year, month)
-}
+    printDates(year, month);
+};
 
 const printHolidays = (holiday, date) => {
-    let holidayStr
+    let holidayStr;
     if (holiday !== undefined) {
         if (Array.isArray(holiday)) {
             for (let i = 0; i < holiday.length; ++i) {
-                holidayStr = holiday[i].locdate.toString()
+                holidayStr = holiday[i].locdate.toString();
                 if (holidayStr === date) {
                     if (dayWrap.classList.contains("next") && dayWrap.classList.contains("prev")) {
                         dayWrap.classList.remove("next-day");
@@ -169,7 +181,7 @@ const printHolidays = (holiday, date) => {
                 }
             }
         } else {
-            holidayStr = holiday.locdate.toString()
+            holidayStr = holiday.locdate.toString();
             if (holidayStr === date) {
                 if (dayWrap.classList.contains("next") && dayWrap.classList.contains("prev")) {
                     dayWrap.classList.remove("next-day");
@@ -181,12 +193,12 @@ const printHolidays = (holiday, date) => {
 
         }
     }
-}
+};
 
 const getPrevMonth = async () => {
-    tdate.setMonth(tdate.getMonth() - 1)
-    await drawCalender()
-}
+    tdate.setMonth(tdate.getMonth() - 1);
+    await drawCalender();
+};
 
 const getLastWeekPreMonth = (year, month) => {
     if (month === 0) {
@@ -210,12 +222,12 @@ const getLastWeekPreMonth = (year, month) => {
     }
 
     return previousDays;
-}
+};
 
 const getNextMonth = async () => {
-    tdate.setMonth(tdate.getMonth() + 1)
-    await drawCalender()
-}
+    tdate.setMonth(tdate.getMonth() + 1);
+    await drawCalender();
+};
 
 const getFirstWeekNextMonth = (year, month) => {
     let nextMonth = month === 11 ? 0 : month + 1;
@@ -234,24 +246,24 @@ const getFirstWeekNextMonth = (year, month) => {
     }
 
     return nextDays;
-}
+};
 
 const makeFullDate = (date) => {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
 
-    return `${year}${makeTwoDigit(month)}${makeTwoDigit(day)}`
-}
+    return `${year}${makeTwoDigit(month)}${makeTwoDigit(day)}`;
+};
 
 const printDates = (year, month) => {
     yearTxt.innerText = year;
     monthTxt.innerText = monthArr[month];
-}
+};
 
 document.addEventListener("DOMContentLoaded", async () => {
-    await drawCalender()
-})
+    await drawCalender();
+});
 
-prevBtn.addEventListener("click", getPrevMonth)
-nextBtn.addEventListener("click", getNextMonth)
+prevBtn.addEventListener("click", getPrevMonth);
+nextBtn.addEventListener("click", getNextMonth);

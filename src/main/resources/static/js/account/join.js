@@ -52,20 +52,20 @@ const handleNumberLength = (e, length, date) => {
 const handleSubmit = (e) => {
     e.preventDefault();
 
-    const userName = inputName.value
+    const empName = inputName.value
     const birthYear = inputYear.value
     const birthMonth = inputMonth.value
     const birthDate = inputDate.value
 
     errorMessage.classList.remove("on");
 
-    if (userName === "") {
+    if (empName === "") {
         errorMessage.classList.add("on");
         errorMessage.innerText = "이름을 입력해 주세요."
         return
     }
 
-    if (scRegex.test(userName) || trimRegex.test(userName)) {
+    if (scRegex.test(empName) || trimRegex.test(empName)) {
         errorMessage.classList.add("on");
         errorMessage.innerText = "사용할 수 없는 이름입니다.";
         return
@@ -79,13 +79,16 @@ const handleSubmit = (e) => {
         return
     }
 
-    if (birthMonth.length < 2 || birthDate.length < 2) {
+    if (birthMonth.length < 1 || birthDate.length < 1) {
         return;
     }
-    sessionStorage.setItem("userName", userName)
-    sessionStorage.setItem("birthYear", birthYear)
-    sessionStorage.setItem("birthMonth", birthMonth)
-    sessionStorage.setItem("birthDate", birthDate)
+
+    const format = (value) => value.length === 1 ? `0${value}` : value;
+    const empBirth = `${birthYear}-${format(birthMonth)}-${format(birthDate)}`;
+
+    sessionStorage.setItem("empName", empName)
+    sessionStorage.setItem("empBirth", empBirth)
+
     location.href = "/join/verify-email";
 }
 

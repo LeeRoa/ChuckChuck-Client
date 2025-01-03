@@ -41,10 +41,10 @@
 
 .message.error {
     color: var(--red);
-    opacity: 0;
+    display: none;
 }
 
-.message.error.on { opacity: 1; }
+.message.error.on { display: block; }
 
 .text-btn.back { margin-top: 24px; }
 
