@@ -1,0 +1,36 @@
+.side-menu-container {
+    width: 220px;
+    height: 100%;
+    background-color: var(--main-bg-white);
+    padding: 40px 34px 0;
+}
+
+.side-nav h1 {
+    padding: 0 12px;
+    margin-bottom: 32px;
+}
+
+.side-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.side-menu .top-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: var(--caption-xs-font-size);
+    font-weight: var(--bold-weight-700);
+    line-height: 21px;
+    background-color: var(--main-bg-white);
+}
+
+
+
+.side-menu a.on {
+    color: var(--main-bg-color);
+    background-color: var(--gray-200);
+}
