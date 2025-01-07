@@ -1,0 +1,60 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/adminLayout}">
+<div layout:fragment="content" class="inner admin">
+    <section class="date-pick-section">
+        <div class="select-cal">
+            <div class="get-today">2024년 12월 24일</div>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 11.825L8.825 8L5 4.175L6.18333 3L11.1833 8L6.18333 13L5 11.825Z"
+                      fill="#616161"/>
+            </svg>
+        </div>
+        <div class="date-pick-wrap">
+            <div class="date-btn date-today">오늘</div>
+            <div class="date-pick">
+                <div class="date-btn date-day">일</div>
+                <div class="date-btn date-week">주</div>
+                <div class="date-btn date-month">월</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="select-emp">
+        <div class="select-wrap">
+            <div class="select-box">
+                <div class="select-one">부서 선택</div>
+                <img src="/imgs/ic_move_in.svg" alt="화살표">
+            </div>
+            <div class="sel-options">
+                <p>전체</p>
+                <p>경영팀</p>
+                <p>기획전략팀</p>
+                <p>재무팀</p>
+                <p>개발팀</p>
+                <p>프로덕트 디자인팀</p>
+                <p>브랜드 디자인팀</p>
+                <p>퍼포먼스 마케팅팀</p>
+                <p>콘텐츠 기획팀</p>
+                <p>CS팀</p>
+            </div>
+        </div>
+        <div class="input-search-bar">
+            <label for="searchInput">
+                <input type="text" name="" id="searchInput" class="input-box small search" placeholder="직원 검색">
+            </label>
+        </div>
+    </section>
+
+    <section class="emp-table">
+        <ul class="table-title">
+            <li class="table-data"></li>
+        </ul>
+    </section>
+</div>
+
+<th:block layout:fragment="pageScripts">
+    <script src="/js/admin/workTime.js"></script>
+</th:block>
+</html>

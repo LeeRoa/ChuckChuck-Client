@@ -1,36 +1,55 @@
-.side-menu-container {
-    width: 220px;
+.lnb-container {
+    width: 100%;
     height: 100%;
     background-color: var(--main-bg-white);
     padding: 40px 34px 0;
 }
 
-.side-nav h1 {
+.lnb-title {
     padding: 0 12px;
     margin-bottom: 32px;
 }
 
-.side-menu {
+.lnb, .lnb-submenu {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.side-menu .top-menu {
+.lnb-submenu {
+    display: none;
+    gap: 2px;
+    margin-top: 4px;
+}
+
+.lnb-submenu.active {
+    display: block;
+}
+
+.lnb .lnb-style {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 6px 12px;
     border-radius: 10px;
-    font-size: var(--caption-xs-font-size);
-    font-weight: var(--bold-weight-700);
+    font-size: var(--caption-xxs-font-size);
+    font-weight: var(--medium-weight-500);
     line-height: 21px;
     background-color: var(--main-bg-white);
+    cursor: pointer;
 }
 
+.lnb .lnb-menu-item {
+    font-weight: var(--bold-weight-700);
+    font-size: var(--caption-xs-font-size);
+}
 
+.lnb svg {
+    transform: rotate(90deg);
+}
 
-.side-menu a.on {
+.lnb .lnb-menu-item.on,
+.lnb-submenu .lnb-submenu-item.on {
     color: var(--main-bg-color);
     background-color: var(--gray-200);
 }

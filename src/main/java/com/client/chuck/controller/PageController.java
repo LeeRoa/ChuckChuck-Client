@@ -71,6 +71,16 @@ public class PageController {
         return "account/reset-password";
     }
 
+    @GetMapping("/admin/company-info")
+    public String companyInfo() {
+        return "admin/company-info";
+    }
+
+    @GetMapping("/admin/work-time")
+    public String workTime() {
+        return "admin/work-time";
+    }
+
     //Spring Security 에서 처리
     @ResponseBody
     @PostMapping("/loginProcess")

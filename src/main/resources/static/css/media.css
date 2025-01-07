@@ -1,6 +1,6 @@
 /* 태블릿 기준 */
 @media screen and (max-width: 1439px) {
-    .inner { padding: 0 24px; }
+    .inner { padding: 40px 24px; }
 
      /*join, login 푸터 */
     .sign-container {
@@ -29,7 +29,6 @@
         min-width: 672px;
         display: flex;
         flex-direction: column;
-        padding-top: 40px;
     }
 }
 

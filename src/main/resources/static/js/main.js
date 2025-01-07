@@ -1,17 +1,28 @@
 // gnb 메뉴 클릭효과
-const gnbMenus = document.querySelectorAll(".gnb-menu-btn");
+const showGnbMenu = () => {
+    const gnbMenus = document.querySelectorAll(".gnb-menu-btn");
+    let fullURL = window.location.pathname;
 
-gnbMenus.forEach((menu) => {
-    menu.addEventListener("click", (e) => {
-        e.preventDefault();
-        menu.classList.add("on");
-        gnbMenus.forEach((otherMenu) => {
-            if (otherMenu !== menu) {
-                otherMenu.classList.remove("on");
-            }
-        })
+    gnbMenus.forEach((menu, index) => {
+        const originHref = menu.getAttribute("href");
+        const isOpen = sessionStorage.getItem(`menu-open-${index}`) === "open";
+
+        if (isOpen) {
+            menu.classList.add("on");
+        }
+
+        if (fullURL === originHref) {
+            menu.classList.add("on");
+            sessionStorage.setItem(`menu-open-${index}`, "open")
+        } else if (fullURL.includes("admin") && originHref.includes("admin")) {
+            menu.classList.add("on");
+            sessionStorage.setItem(`menu-open-${index}`, "open")
+        } else {
+            menu.classList.remove("on");
+            sessionStorage.removeItem(`menu-open-${index}`);
+        }
     })
-})
+}
 
 // 헤더 모달창
 const inviteIcon = document.querySelector(".gnb-icon.invite")
@@ -51,4 +62,8 @@ modalClose.forEach((btn) => {
             closeModal(modalClose)
         })
     })
+})
+
+document.addEventListener("DOMContentLoaded", () => {
+    showGnbMenu();
 })

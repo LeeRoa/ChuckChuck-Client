@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<th:block th:replace="~{common/fragments/config :: configFragment}"></th:block>
+
+<body>
+<th:block th:insert="~{common/fragments/header :: HeaderFragment}"></th:block>
+
+<div class="page-grid">
+    <th:block th:insert="~{common/fragments/side-menu :: sideMenuFragment}"></th:block>
+    <th:block layout:fragment="content"></th:block>
+</div>
+
+<th:block th:replace="~{common/fragments/scripts :: scriptsFragment}">
+    <!-- 공통 js 들어오는 곳 -->
+</th:block>
+<script src="/js/sideMenu.js"></script>
+<th:block layout:fragment="pageScripts">
+    <!-- 페이지별 js 영역 -->
+</th:block>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+.date-pick-section, .select-cal, .select-emp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select-emp {
+    justify-content: flex-start;
+    align-items: center;
+}

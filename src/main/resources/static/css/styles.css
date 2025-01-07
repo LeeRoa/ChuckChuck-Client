@@ -12,10 +12,15 @@
 @import url("components/side-menu.css");
 
 /* screens */
+/* 회원가입/로그인 */
 @import url("screens/join.css");
 @import url("screens/login.css");
 @import url("screens/find-account.css");
+/* 메인(공통) */
 @import url("screens/home.css");
+/* 관리자 */
+@import url("screens/company-info.css");
+@import url("screens/work-time.css");
 
 /* media 반응형 */
 @import url("media.css");

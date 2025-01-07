@@ -47,13 +47,11 @@ const getPrevAndNextMonth = async (year, month) => {
     const nextYear = month === 11 ? year + 1 : year;
     const nextMonth = month === 11 ? 1 : month + 2;
 
-    const holidays = await Promise.all([
+    return await Promise.all([
         getHolidays(year, month + 1), // 현재 달
         getHolidays(prevYear, prevMonth), // 이전 달
         getHolidays(nextYear, nextMonth), // 다음 달
     ]);
-
-    return holidays;
 }
 
 const isLeapYear = (y) => (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;

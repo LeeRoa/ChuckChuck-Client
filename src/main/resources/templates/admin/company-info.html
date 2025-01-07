@@ -1,0 +1,57 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/adminLayout}">
+<div layout:fragment="content" class="inner admin">
+    <section class="edit-img-section">
+        <!-- 회사대표 -->
+        <div class="edit-img">
+            <h1 class="edit-img-title">회사 대표 이미지</h1>
+            <form id="symbolForm" class="">
+                <label for="editSymbolImg"></label>
+                <input type="file" name="" id="editSymbolImg" class="edit-img-input">
+                <div class="btn-wrap">
+                    <button class="sub-btn">수정하기</button>
+                    <input type="reset" class="sub-btn cancel" value="삭제">
+                </div>
+            </form>
+        </div>
+
+        <!-- 회사로고 -->
+        <div class="edit-img">
+            <h1 class="edit-img-title">회사 로고 이미지</h1>
+            <form id="logoForm" class="">
+                <label for="editLogoImg"></label>
+                <input type="file" name="" id="editLogoImg" class="edit-img-input">
+                <div class="btn-wrap">
+                    <button class="sub-btn">수정하기</button>
+                    <input type="reset" class="sub-btn cancel" value="삭제">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 정보 수정 -->
+    <section class="edit-info-wrap">
+        <div class="co-name-wrap">
+            <label for="coName">회사명</label>
+            <input type="text" name="" id="coName" class="input-box small" placeholder="ex) ChuckChuck">
+        </div>
+        <div class="co-intro-wrap">
+            <label for="coIntro">회사 소개</label>
+            <input type="text" name="" id="coIntro" class="input-box small" placeholder="ex) Chuck Chuck은 무엇이든 척척">
+        </div>
+        <div class="co-addr-wrap">
+            <label for="coAddr">회사 주소</label>
+            <input type="text" name="" id="coAddr" class="input-box small" placeholder="시/구/동/길 API??">
+        </div>
+        <div class="co-number-wrap">
+            <label for="coNumber">회사 번호</label>
+            <input type="text" name="" id="coNumber" class="input-box small" placeholder="ex) 02-123-1234">
+        </div>
+    </section>
+</div>
+
+<th:block layout:fragment="pageScripts">
+</th:block>
+</html>

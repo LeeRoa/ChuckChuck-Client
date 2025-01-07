@@ -53,6 +53,32 @@
             거절
         </button>
     </div>
+    <div style="background-color: #8C8C8C; width: 200px; height: 60px; padding: 20px;">
+        <button class="sub-btn">
+            수정하기
+        </button>
+        <button class="sub-btn cancel">
+            삭제
+        </button>
+    </div>
+    <div style="background-color: #8C8C8C; width: 200px; height: 60px; padding: 20px;">
+        <button class="confirm-btn">
+            확인
+        </button>
+        <button class="confirm-btn cancel">
+            취소
+        </button>
+    </div>
+    <div style="background-color: #8C8C8C; width: 500px; height: 60px; padding: 18px;">
+        <div class="date-pick-wrap">
+            <div class="date-btn date-today">오늘</div>
+            <div class="date-pick">
+                <div class="date-btn date-day">일</div>
+                <div class="date-btn date-week">주</div>
+                <div class="date-btn date-month">월</div>
+            </div>
+        </div>
+    </div>
     <hr>
     <h3>GNB 메뉴</h3>
     <div style="background-color: #8C8C8C; width: 300px; height: 65px; padding: 10px;">
@@ -68,6 +94,34 @@
     <hr>
     <label for=""></label>
     <input type="text" name="" id="" class="input-box" placeholder="텍스트는 최대 1줄 까지 입력 가능합니다.">
+
+    <label for=""></label>
+    <input type="text" name="" id="" class="input-box small" placeholder="텍스트는 최대 1줄 까지 입력 가능합니다.">
+
+    <div class="input-search-bar">
+        <label for="searchInput">
+            <input type="text" name="" id="searchInput" class="input-box small search" placeholder="직원 검색">
+        </label>
+    </div>
+
+    <div class="select-wrap">
+        <div class="select-box">
+            <div class="select-one">부서 선택</div>
+            <img src="/imgs/ic_move_in.svg" alt="화살표">
+        </div>
+        <div class="sel-options">
+            <p>전체</p>
+            <p>경영팀</p>
+            <p>기획전략팀</p>
+            <p>재무팀</p>
+            <p>개발팀</p>
+            <p>프로덕트 디자인팀</p>
+            <p>브랜드 디자인팀</p>
+            <p>퍼포먼스 마케팅팀</p>
+            <p>콘텐츠 기획팀</p>
+            <p>CS팀</p>
+        </div>
+    </div>
     <hr>
     <h3>헤더</h3>
     <nav>
@@ -189,38 +243,56 @@
     <div class="side-menu-container">
         <div class="side-nav">
             <h1 class="font-bold body-md">관리자</h1>
-            <div class="side-menu">
-                <a href="" class="top-menu">
-                    <span>회사정보</span>
-                </a>
-                <a href="" class="top-menu">
-                    <span>출퇴근 관리</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 11.825L8.825 8L5 4.175L6.18333 3L11.1833 8L6.18333 13L5 11.825Z" fill="#616161"/>
-                    </svg>
-                </a>
-                <div>
-                    <a href="">하위메뉴</a>
-                </div>
-                <a href="" class="top-menu">
-                    <span>근무/휴가 관리</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 11.825L8.825 8L5 4.175L6.18333 3L11.1833 8L6.18333 13L5 11.825Z" fill="#616161"/>
-                    </svg>
-                </a>
-                <a href="" class="top-menu">
-                    <span>조직원 관리</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 11.825L8.825 8L5 4.175L6.18333 3L11.1833 8L6.18333 13L5 11.825Z" fill="#616161"/>
-                    </svg>
-                </a>
-                <a href="" class="top-menu">
-                    <span>환경 설정</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 11.825L8.825 8L5 4.175L6.18333 3L11.1833 8L6.18333 13L5 11.825Z" fill="#616161"/>
-                    </svg>
-                </a>
-            </div>
+            <ul class="side-menu">
+                <li>
+                    <a href="" class="dropdown-menu top-menu">
+                        <span>회사정보</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="dropdown-menu top-menu">
+                        <span>출퇴근 관리</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 11.825L8.825 8L5 4.175L6.18333 3L11.1833 8L6.18333 13L5 11.825Z"
+                                  fill="#616161"/>
+                        </svg>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="" class="dropdown-menu on">하위메뉴</a>
+                        </li>
+                        <li>
+                            <a href="" class="dropdown-menu">하위메뉴</a>
+                        </li>
+                        <li>
+                            <a href="" class="dropdown-menu">하위메뉴</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="dropdown-menu top-menu">
+                        <span>근무/휴가 관리</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 11.825L8.825 8L5 4.175L6.18333 3L11.1833 8L6.18333 13L5 11.825Z"
+                                  fill="#616161"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="dropdown-menu top-menu">
+                        <span>조직원 관리</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 11.825L8.825 8L5 4.175L6.18333 3L11.1833 8L6.18333 13L5 11.825Z"
+                                  fill="#616161"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="dropdown-menu top-menu">
+                        <span>환경 설정</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
