@@ -5,6 +5,26 @@
 }
 
 .select-emp {
+    position: relative;
+    margin: 40px 0;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+/* 근무시간 테이블 영역 */
+.table-title, .table-content {
+    display: grid;
+    grid-template-columns: repeat(9, max(70px));
+    justify-content: space-between;
+    gap: 58px;
+    padding: 6px 4px;
+    font-size: var(--caption-xxs-font-size);
+    font-weight: var(--regular-weight-400);
+}
+
+.table-title {
+    margin-bottom: 16px;
+    color: var(--gray-600);
+    border-bottom: 2px solid var(--gray-300);
 }
