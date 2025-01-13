@@ -1,0 +1,28 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<div id="timeEditModal" class="time-edit-modal" th:fragment="timeEditModalFragment">
+    <div class="edit-modal-inner">
+        <div class="edit-modal-header">
+            <span class="emp-name-modal"></span>
+            <span class="work-date">2024년 12월 28일</span>
+        </div>
+        <div class="work-time-wrap">
+            <div class="edit-wrap before-edit">
+                <p class="edit-text">변경 전</p>
+                <p class="work-time-box before-time">09:02</p>
+            </div>
+            <img src="/imgs/ic_move_in.svg" alt="화살표">
+            <div class="edit-wrap after-edit">
+                <label for="workTimeInput" class="edit-text">변경 후</label>
+                <input type="text" name="" id="workTimeInput" class="work-time-box work-time-input">
+            </div>
+        </div>
+        <p class="message edit-work-info">변경하실 시간을 입력해 주세요.</p>
+        <div class="edit-btn-wrap">
+            <button id="confirmBtn" class="confirm-btn">확인</button>
+            <button id="editCancelBtn" class="confirm-btn cancel">취소</button>
+        </div>
+    </div>
+</div>
+</html>

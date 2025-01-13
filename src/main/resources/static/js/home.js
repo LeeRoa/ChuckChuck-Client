@@ -3,10 +3,6 @@ const today = document.querySelector(".today");
 const currentTime = document.querySelector(".current-time");
 const punchInBtn = document.querySelector(".punch-in");
 
-const makeTwoDigit = (num) => {
-    return String(num).padStart(2, "0");
-}
-
 let date = new Date();
 let year = date.getFullYear();
 let month = makeTwoDigit(date.getMonth() + 1);
@@ -30,3 +26,10 @@ const updateTime = () => {
 
 updateTime()
 setInterval(updateTime,1000)
+
+document.addEventListener("DOMContentLoaded", async () => {
+    await drawCalender();
+
+    prevBtn.addEventListener("click", getPrevMonth);
+    nextBtn.addEventListener("click", getNextMonth);
+});

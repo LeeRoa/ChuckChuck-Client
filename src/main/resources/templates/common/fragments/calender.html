@@ -1,0 +1,29 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<div class="calender-card" th:fragment="calenderFragment">
+    <div class="calender-head">
+        <button id="prev-btn">
+            <img src="/imgs/ic_move_in.svg" alt="화살표">
+        </button>
+        <div class="month-year caption-xs font-bold">
+            <span></span>
+            <span></span>
+        </div>
+        <button id="next-btn">
+            <img src="/imgs/ic_move_in.svg" alt="화살표">
+        </button>
+    </div>
+    <ul class="weekday caption-xxs">
+        <li>SUN</li>
+        <li>MON</li>
+        <li>TUE</li>
+        <li>WED</li>
+        <li>THU</li>
+        <li>FRI</li>
+        <li>SAT</li>
+    </ul>
+    <div class="days-container">
+    </div>
+</div>
+</html>

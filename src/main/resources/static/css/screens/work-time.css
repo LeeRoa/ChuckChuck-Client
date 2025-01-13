@@ -4,6 +4,28 @@
     align-items: center;
 }
 
+.select-cal {
+    justify-content: flex-start;
+    gap: 4px;
+    padding: 3px 4px;
+    cursor: pointer;
+}
+
+/* 달력설정 */
+.shadow {
+    min-height: 280px;
+    box-shadow: var(--main-shadow);
+}
+
+.cal-drop {
+    display: none;
+    margin-top: 6px;
+    position: absolute;
+    z-index: 100;
+}
+
+.cal-drop.on { display: block; }
+
 .select-emp {
     position: relative;
     margin: 40px 0;
@@ -28,3 +50,28 @@
     color: var(--gray-600);
     border-bottom: 2px solid var(--gray-300);
 }
+
+.table-content {
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.table-data.dept-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table-data.highlight { color: var(--main-bg-color) }
+
+.table-data.edit-data { position: relative; }
+
+.table-data.edit-data p,
+.table-data.edit-data .edit-btn-box {
+    position: absolute;
+}
+
+.table-data.edit-data .edit-btn-box { top: -6px; }
+
+.table-data.edit-data .edit-btn-box { display: none; }
+.table-data.edit-data .edit-btn-box.on { display: block; }

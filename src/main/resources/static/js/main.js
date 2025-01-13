@@ -64,6 +64,21 @@ modalClose.forEach((btn) => {
     })
 })
 
+const makeTwoDigit = (num) => {
+    return String(num).padStart(2, "0");
+}
+
+// let animation = lottie.loadAnimation({
+//     container: document.getElementById('lottie-container'), // 애니메이션을 표시할 DOM 요소
+//     // renderer: 'svg', // 렌더러 설정: svg, canvas, html
+//     loop: true, // 반복 여부
+//     autoplay: true, // 자동 시작 여부
+//     path: '/lottie/Order-Complete.json' // 애니메이션 JSON 파일 경로
+//     // path: 'https://lottie.host/embed/7aef8ddd-c148-4fef-bf7d-a0eb534e8438/S4lVZxubu7.lottie' // 애니메이션 JSON 파일 경로
+// });
+//
+// console.log(animation);
+
 document.addEventListener("DOMContentLoaded", () => {
     showGnbMenu();
 })

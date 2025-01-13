@@ -64,8 +64,6 @@ let tdate = new Date();
 const monthArr = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
 const drawCalender = async () => {
-    // year = year !== undefined ? year : currYear;
-    // month = month !== undefined ? month - 1 : currMonth;
     const year = tdate.getFullYear();
     const month = tdate.getMonth();
 
@@ -97,21 +95,16 @@ const drawCalender = async () => {
 
     daysContainer.innerHTML = "";
 
-    const scheduleBoard = document.querySelector(".dashboard-box.schedule");
-    const scheduleCard = document.querySelectorAll(".schedule-card");
+    const scheduleContainer = document.querySelector(".schedule-container");
 
     for (let i = 0; i < row; ++i) {
         const weekDayWrap = document.createElement("div");
         weekDayWrap.className = "weekday-wrap";
-        scheduleBoard.style.height = "";
-        scheduleCard.forEach(board => {
-            board.style.height = "";
-        });
-        if (row >= 6) {
-            scheduleBoard.style.height = "399px";
-            scheduleCard.forEach(board => {
-                board.style.height = "310px";
-            });
+        if (scheduleContainer) {
+            scheduleContainer.classList.remove("height")
+            if (row >= 6) {
+                scheduleContainer.classList.add("height")
+            }
         }
         for (let k = 0; k <= 6; ++k) {
             dayWrap = document.createElement("button");
@@ -146,7 +139,8 @@ const drawCalender = async () => {
             } else {
                 // 입력 된 연월일
                 const enterDate = `${year}${makeTwoDigit(month + 1)}${makeTwoDigit(dateNum)}`;
-                const thisDate = `${date.getFullYear()}${makeTwoDigit(date.getMonth() + 1)}${makeTwoDigit(date.getDate())}`;
+                const date = new Date();
+                const thisDate = `${makeFullDate(date)}`;
                 printHolidays(currentHolidays, enterDate);
                 if (enterDate === thisDate) {
                     dayWrap.classList.add("cal-today");
@@ -258,10 +252,3 @@ const printDates = (year, month) => {
     yearTxt.innerText = year;
     monthTxt.innerText = monthArr[month];
 };
-
-document.addEventListener("DOMContentLoaded", async () => {
-    await drawCalender();
-});
-
-prevBtn.addEventListener("click", getPrevMonth);
-nextBtn.addEventListener("click", getNextMonth);

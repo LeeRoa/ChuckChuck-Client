@@ -70,6 +70,14 @@ const handleSubmit = async (e) => {
         return;
     }
 
+    const isEmail = await getExistEmail(empEmail);
+    if (isEmail) {
+        errorMessage1.classList.add("error");
+        errorMessage1.classList.add("on");
+        errorMessage1.innerText = "중복된 이메일 입니다.";
+        return
+    }
+
     inputEmail.readOnly = true;
     errorMessage1.classList.remove("error");
     errorMessage1.classList.remove("on");
@@ -82,7 +90,7 @@ const handleSubmit = async (e) => {
     handleTwoMinute();
 
     if (totalSeconds === 0) {
-        errorMessage2.innerText = "인증시간이 초과 되었습니다. 인증번호를 다시 발급 받으세요.";
+        errorMessage2.innerText = "인증시간 초과입니다. 인증번호 재발급 받으세요.";
         return;
     }
 
@@ -98,16 +106,22 @@ const handleSubmit = async (e) => {
     }
 
     if (verifyCode.value.trim() === code) {
-        await getExistEmail(empEmail)
+        sessionStorage.setItem("empEmail", empEmail);
+        location.href = "/join/set-password";
     }
 };
 
 const getExistEmail = async (empEmail) => {
-    const response = await fetch(`/emp/${empEmail}`, {
+    const response = await fetch(`https://localhost:28444/emp`, {
         method: "GET",
         headers: {contentType: "application/json"},
     })
-    console.log(response)
+    if (response.ok) {
+        const data = await response.json();
+        if (data.resultCode === '0') {
+            return data.empInfo.find(mail => mail.empEmail === empEmail);
+        }
+    }
 }
 
 inputEmail.addEventListener("input", handleBtnDisabled);

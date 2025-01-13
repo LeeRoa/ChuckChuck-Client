@@ -1,0 +1,81 @@
+/* 달력 */
+.calender-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: var(--main-bg-white);
+}
+
+.calender-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 6px;
+}
+
+.calender-head button:first-child img { transform: rotate(180deg); }
+.calender-head button { height: 16px; }
+
+.month-year span:first-child { text-transform: capitalize; }
+
+.weekday {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 12px;
+    gap: 14px;
+    font-weight: var(--medium-weight-500);
+    color: var(--gray-600);
+}
+
+.weekday-wrap {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    gap: 13px;
+}
+
+.day-wrap {
+    width: 25px;
+    height: 25px;
+    padding: 3px 0;
+    border-radius: 50px;
+    background-color: var(--main-bg-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+}
+
+.day-wrap.cal-today, .day-wrap.pick-date { background-color: var(--main-bg-color); }
+.day-wrap.cal-today .schedule-dot { background-color: var(--main-bg-white) }
+.day-wrap.cal-today .date-num,
+.day-wrap.pick-date .date-num,
+.day-wrap.holiday.cal-today .date-num,
+.day-wrap.holiday.pick-date .date-num {
+    color: var(--main-bg-white)
+}
+.day-wrap.holiday .date-num { color: var(--holiday-red); }
+
+.day-wrap.prev-day .date-num,
+.day-wrap.next-day .date-num {
+    opacity: 0.4;
+}
+
+.date-num {
+    font-size: var(--caption-xxs-font-size);
+    font-weight: var(--medium-weight-500);
+    color: var(--gray-800);
+}
+.schedule-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--main-bg-color);
+}

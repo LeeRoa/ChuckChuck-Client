@@ -1,3 +1,11 @@
+#lottie-container {
+    width: 100%;
+    height: 100px; /* 또는 원하는 고정 높이 */
+    max-width: 100px; /* 애니메이션의 최대 너비 설정 */
+    margin: auto;
+}
+
+
 .inner {
     padding: 40px;
     height: 100%;
@@ -138,6 +146,11 @@ input[type=number] {
     line-height: 21px;
 }
 
+.date-btn.on {
+    background-color: var(--main-bg-color);
+    color: var(--main-bg-white);
+}
+
 .date-btn.date-day {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -150,6 +163,22 @@ input[type=number] {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left: 0;
+}
+
+.edit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    padding: 2px 0;
+    border-radius: 4px;
+    background-color: var(--gray-500);
+}
+
+.edit-btn span {
+    font-size: var(--caption-xxs-font-size);
+    font-weight: var(--medium-weight-500);
+    color: var(--main-bg-white);
 }
 
 /* 호버 */
@@ -247,7 +276,7 @@ label[for^="search"]::before {
     padding: 8px 16px;
     border-radius: 8px;
     background-color: var(--main-bg-white);
-    box-shadow: 0px 4px 4px 2px #0000001A;
+    box-shadow: var(--main-shadow);
     font-size: var(--caption-xxs-font-size);
     font-weight: var(--medium-weight-500);
 }
@@ -334,3 +363,75 @@ label:not([for^="birth"]) { cursor: pointer; }
 .page-container p { margin-bottom: 71px; }
 
 /* --------------------------------------------------------------- */
+
+/* 근무시간 변경 모달 */
+.time-edit-modal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.time-edit-modal.open { display: block; }
+
+.edit-modal-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 240px;
+    padding: 17px 17px 10px 22px;
+    border-radius: 10px;
+    background-color: var(--main-bg-white);
+}
+
+.edit-modal-header span {
+    font-size: var(--body-md-font-size);
+    font-weight: var(--medium-weight-500);
+}
+
+.work-time-wrap, .after-edit {
+    display: flex;
+}
+.work-time-wrap {
+    margin: 27px 0 15px;
+    gap: 15px;
+}
+.work-time-wrap img { margin-top: 10px; }
+
+.after-edit { flex-direction: column; }
+.edit-text {
+    margin-bottom: 3px;
+    font-size: var(--caption-xxs-font-size);
+    font-weight: var(--regular-weight-400);
+    color: var(--gray-600);
+}
+
+.work-time-box {
+    width: 100px;
+    height: 40px;
+    padding: 5px 21px;
+    border-radius: 4px;
+    background-color: var(--gray-400);
+    text-align: center;
+}
+
+.before-time {
+    line-height: 30px;
+    color: var(--main-bg-white);
+}
+
+.work-time-input {
+    background-color: var(--main-bg-white);
+    border: 1px solid var(--gray-300);
+}
+.edit-work-info { line-height: 21px; }
+.edit-btn-wrap {
+    margin-top: 52px;
+    text-align: right;
+}

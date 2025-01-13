@@ -40,5 +40,5 @@
     --heady-weight-900: 900;
 
     /* 이펙트 */
-    --main-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+    --main-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
