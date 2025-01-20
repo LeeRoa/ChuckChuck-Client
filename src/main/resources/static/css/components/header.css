@@ -15,10 +15,9 @@ nav, .nav-left {
     align-items: center;
 }
 
-.gnb-logo {
-    height: 28px;
-    margin-right: 31px;
-}
+.nav-left { gap: 32px; }
+
+.gnb-logo { height: 28px; }
 
 .gnb-logo img { height: 100%; }
 
@@ -27,6 +26,7 @@ nav, .nav-left {
 nav ul {
     display: flex;
     align-items: center;
+    padding: 14px 12px;
 }
 
 .gnb-menu-btn {

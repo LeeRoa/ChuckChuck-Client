@@ -79,3 +79,15 @@
     border-radius: 3px;
     background-color: var(--main-bg-color);
 }
+
+/* 주, 월 단위 선택했을 때 효과 */
+.weekday-wrap.select-week,
+.days-container.select-month:not(.prev-day, .next-day){
+    background-color: var(--main-bg-color);
+    border-radius: 10px;
+}
+
+.weekday-wrap.select-week .day-wrap,
+.days-container.select-month .day-wrap { background-color: inherit; }
+.weekday-wrap.select-week .date-num,
+.days-container.select-month .date-num { color: var(--main-bg-white); }

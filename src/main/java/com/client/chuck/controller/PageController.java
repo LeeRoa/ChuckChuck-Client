@@ -46,9 +46,9 @@ public class PageController {
         return "account/verify-email";
     }
 
-    @GetMapping("/login/request-login")
+    @GetMapping("/join/request-join")
     public String requestJoin() {
-        return "account/request-login";
+        return "account/request-join";
     }
 
     @GetMapping("/login")

@@ -21,8 +21,7 @@
     box-shadow: var(--main-shadow);
 }
 
-.dashboard-box.electric { height: 369px; }
-.dashboard-box.schedule { height: fit-content }
+.dashboard-box.electric, .dashboard-box.schedule { height: fit-content }
 
 .dashboard-box.white {
     background-color: var(--main-bg-white);
@@ -58,12 +57,13 @@
     display: grid;
     place-content: center;
     align-items: center;
-    height: 50px;
     margin-bottom: 8px;
-    padding: 14px;
+    padding: 8px 14px;
     background-color: var(--main-bg-white);
     border-radius: 10px;
 }
+
+.electric-card.height { padding: 11px 14px; }
 
 .electric-card { grid-template-columns: minmax(168px, 1fr) 440px; }
 
@@ -176,18 +176,17 @@
 
 /* --------------------------------------------------------------- */
 
-/* 근태관리 */
+/* 근태관리 및 휴가현황 공용 */
 .status-container {
     height: 374px;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 312px minmax(340px, 1fr);
     gap: 16px;
 }
 
-.dashboard-box.attendance {
-    width: 100%;
-    max-width: 312px;
-}
+.dashboard-box.attendance, .dashboard-box.vacation  { width: 100%; }
+
+/* 근태관리 */
 
 .timer {
     width: 279px;
@@ -213,14 +212,11 @@
 }
 
 /* 휴가현황 */
-.vacation {
-    width: 100%;
-    min-width: 340px;
-}
-
+.dashboard-box.vacation > .card-wrap { padding: 0 14px; }
 .contents-card.vacation {
     width: 100%;
     min-width: 100%;
+    padding: 8px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;

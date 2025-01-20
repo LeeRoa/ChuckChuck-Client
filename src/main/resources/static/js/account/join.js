@@ -2,7 +2,7 @@ const joinForm =document.getElementById("joinForm");
 const items = [...document.querySelectorAll('[name=check-agree]')];
 const checkAll = document.getElementById("allAgree");
 const nextBtn = document.getElementById("next-btn");
-const errorMessage = document.querySelector(".message.error")
+const errorMessage = document.querySelector(".message")
 const inputName = document.getElementById("inputName");
 const inputYear = document.getElementById("birthYear")
 const inputMonth = document.getElementById("birthMonth")
@@ -10,6 +10,7 @@ const inputDate = document.getElementById("birthDate")
 
 // 특수문자
 const scRegex = /[!@#$%^&*]/;
+// 공백
 const trimRegex = /\s/
 
 items.forEach((item) => {
@@ -60,14 +61,12 @@ const handleSubmit = (e) => {
     errorMessage.classList.remove("on");
 
     if (empName === "") {
-        errorMessage.classList.add("on");
-        errorMessage.innerText = "이름을 입력해 주세요."
+        drawErrorMessage(errorMessage, "이름을 입력해 주세요.")
         return
     }
 
     if (scRegex.test(empName) || trimRegex.test(empName)) {
-        errorMessage.classList.add("on");
-        errorMessage.innerText = "사용할 수 없는 이름입니다.";
+        drawErrorMessage(errorMessage, "사용할 수 없는 이릅니다.")
         return
     }
 

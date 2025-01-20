@@ -45,7 +45,7 @@ $(function () {
 
     $(".table-data").each((index, item) => {
         if (index === 0) {
-            console.log($(item))
+            console.log($(item));
         }
         $(item).mouseenter(() => {
             $(item).find(".edit-btn-box").addClass("on");
@@ -53,14 +53,18 @@ $(function () {
                 openModal();
             });
             const workTime = $(item).find("p");
+            const empName = $(item).find(".emp-name");
+            if (empName.length) {
+                console.log(empName.text());
+            }
             getEmpWorkInfo($(".before-time"), workTime);
         }).mouseleave(() => {
             $(item).find(".edit-btn-box").removeClass("on");
         });
-        const empName = $(item).hasClass("emp-name");
-        if (empName) {
-            console.log($(item).text())
-        }
+        // const empName = $(item).hasClass("emp-name");
+        // if (empName) {
+        //     console.log($(item).text())
+        // }
     });
 
     $("#editCancelBtn").on("click", (e) => {
@@ -80,51 +84,103 @@ $(function () {
     };
 });
 
-const getWeek = (date) => {
-    const currentDate = date.getDate();
-    const firstDay = new Date(date.setDate(1)).getDay();
-
-    return Math.ceil((currentDate + firstDay) / 7);
-};
-
 const getDate = (dayWraps) => {
     dayWraps.forEach((dayWrap) => {
         dayWrap.addEventListener("mouseenter", (e) => {
             dayWrap.classList.add("pick-date");
-        })
+        });
         dayWrap.addEventListener("mouseleave", (e) => {
             dayWrap.classList.remove("pick-date");
-        })
-    })
-}
-
-const getWeekDay = (dayWraps) => {
-    dayWraps.forEach((dayWrap) => {
-        dayWrap.addEventListener("mouseenter", (e) => {
-            const date = new Date();
-            const day = date.getDay();
-        })
-    })
-}
+        });
+    });
+};
 
 document.addEventListener("DOMContentLoaded", async () => {
     await drawCalender();
+    const calCard = document.querySelector(".calender-card ");
+    let currMonth;
+    const getYearMonth = () => {
+        const YM = calCard.querySelector(".month-year");
+        const month = YM.querySelector("span:first-child");
+        const year = YM.querySelector("span:last-child");
+        console.log(month)
+        return {
+            year: parseInt(year.textContent),
+            month: month.textContent,
+        };
+    };
+    getYearMonth()
+    const {year, month} = getYearMonth()
+
+    for (let i = 0; i < monthArr.length; ++i) {
+        if (monthArr[i] === month) {
+            currMonth = i;
+        }
+    }
+
+    daysContainer.addEventListener("click", () => {
+        daysContainer.classList.add("select-month")
+    })
+
+    console.log(daysContainer)
+
+    console.log(currMonth, typeof currMonth)
+    console.log(new Date(2024, 2, 0).getDate());
+
     const dayWraps = document.querySelectorAll(".day-wrap");
-    await getDate(dayWraps)
+    await getDate(dayWraps);
 
     const getNextMonthDay = async () => {
-        await getNextMonth()
+        await getNextMonth();
 
         const dayWraps = document.querySelectorAll(".day-wrap");
-        await getDate(dayWraps)
+        await getDate(dayWraps);
+        getYearMonth()
     };
 
     const getPrevMonthDay = async () => {
-        await getPrevMonth()
+        await getPrevMonth();
 
         const dayWraps = document.querySelectorAll(".day-wrap");
-        await getDate(dayWraps)
+        await getDate(dayWraps);
+        getYearMonth()
     };
+
+    const weekWrap = document.querySelectorAll(".weekday-wrap")
+
+    // dayWraps.forEach((day) => {
+    //     day.addEventListener("click", () => {
+    //         const dateNum = day.querySelector("span");
+    //         const dateText = parseInt(dateNum.textContent)
+    //         console.log(year, month, dateText)
+    //         let currMonth = "";
+    //         for (let i = 0; i < monthArr.length; ++i) {
+    //           if (monthArr[i] === month) {
+    //               currMonth = i;
+    //           }
+    //         }
+    //         console.log(currMonth)
+    //         weekWrap.forEach(week => {
+    //             const clickedDate = week.querySelector("span")
+    //             console.log(clickedDate)
+    //         })
+    //     });
+    // });
+
+    // 주단위 호버
+    // weekWrap.forEach(week => {
+    //     week.addEventListener("mouseenter", () => {
+    //         week.classList.add("select-week")
+    //     })
+    //     week.addEventListener("mouseleave", () => {
+    //         week.classList.remove("select-week")
+    //     })
+    //     week.addEventListener("click", () => {
+    //         const clickedDate = week.querySelector("span")
+    //         console.log(week)
+    //         console.log(clickedDate)
+    //     })
+    // })
 
     prevBtn.addEventListener("click", getPrevMonthDay);
     nextBtn.addEventListener("click", getNextMonthDay);

@@ -2,7 +2,7 @@ const monthTxt = document.querySelector(".month-year span:first-child");
 const yearTxt = document.querySelector(".month-year span:last-child");
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
-const daysContainer = document.querySelector(".days-container");
+const daysContainer = document.getElementById("daysContainer");
 
 let holidaysCache = {}; // 공휴일 정보를 저장할 캐시 객체
 
@@ -120,7 +120,7 @@ const drawCalender = async () => {
                 const prevDates = getLastWeekPreMonth(year, month);
                 if (preMonthIndex === k) {
                     const prevDate = prevDates[k].getDate();
-                    const fullPrevDate = makeFullDate(prevDates[k]);
+                    const fullPrevDate = makeFullDateFormat(prevDates[k]).fullDate;
                     printHolidays(prevMonthHolidays, fullPrevDate);
                     dayWrap.classList.add("prev-day");
                     dateNumSpan.innerText = prevDate;
@@ -130,7 +130,7 @@ const drawCalender = async () => {
                 const nextDates = getFirstWeekNextMonth(year, month);
                 if (nextMonthIndex < nextDates.length) {
                     const nextDate = nextDates[nextMonthIndex].getDate();
-                    const fullNextDate = makeFullDate(nextDates[nextMonthIndex]);
+                    const fullNextDate = makeFullDateFormat(nextDates[nextMonthIndex]).fullDate;
                     printHolidays(nextMonthHolidays, fullNextDate);
                     dayWrap.classList.add("next-day");
                     dateNumSpan.textContent = nextDate;
@@ -140,7 +140,7 @@ const drawCalender = async () => {
                 // 입력 된 연월일
                 const enterDate = `${year}${makeTwoDigit(month + 1)}${makeTwoDigit(dateNum)}`;
                 const date = new Date();
-                const thisDate = `${makeFullDate(date)}`;
+                const thisDate = makeFullDateFormat(date).fullDate;
                 printHolidays(currentHolidays, enterDate);
                 if (enterDate === thisDate) {
                     dayWrap.classList.add("cal-today");
@@ -151,7 +151,6 @@ const drawCalender = async () => {
                 ++dateNum;
             }
         }
-
         daysContainer.appendChild(weekDayWrap);
     }
     printDates(year, month);
@@ -240,12 +239,18 @@ const getFirstWeekNextMonth = (year, month) => {
     return nextDays;
 };
 
-const makeFullDate = (date) => {
+const makeFullDateFormat = (date) => {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
+    const week = date.getDay();
+    const weekdays = ['일', '월', '화', '수', '목', '금', '토'];
 
-    return `${year}${makeTwoDigit(month)}${makeTwoDigit(day)}`;
+    return {
+        fullDate: `${year}${makeTwoDigit(month)}${makeTwoDigit(day)}`,
+        fullDateWithText: `${year}년 ${makeTwoDigit(month)}월 ${makeTwoDigit(day)}일`,
+        fullDateWithDay: `${year}년 ${month}월 ${day}일(${weekdays[week]})`
+    };
 };
 
 const printDates = (year, month) => {

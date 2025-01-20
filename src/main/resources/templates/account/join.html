@@ -12,7 +12,7 @@
                 <label for="inputName"></label>
                 <input type="text" name="" id="inputName" class="input-box name" placeholder="이름">
             </div>
-            <p class="message error"></p>
+            <p class="message"></p>
             <div class="input-birth-wrap">
                 <label for="birthYear">
                     <input type="number" name="" id="birthYear" class="input-box birth year" placeholder="YYYY" maxlength="4">
@@ -55,6 +55,7 @@
 </div>
 <th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
 
+<script layout:fragment="pageScripts" src="/js/account/common.js"></script>
 <script layout:fragment="pageScripts" src="/js/account/join.js"></script>
 </body>
 </html>

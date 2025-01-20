@@ -64,6 +64,7 @@ modalClose.forEach((btn) => {
     })
 })
 
+// 숫자 두자리 만들기 01, 02
 const makeTwoDigit = (num) => {
     return String(num).padStart(2, "0");
 }

@@ -44,6 +44,8 @@
     display: none;
 }
 
+.message.info.invalid { color: var(--red); }
+
 .message.error.on { display: block; }
 
 .text-btn.back { margin-top: 24px; }
@@ -139,8 +141,14 @@ label[for="birthDate"]::after { content: "일"; }
 
 .message.code { color: var(--red) }
 
-.resend-btn { text-decoration: underline; }
+.resend-btn {
+    text-decoration: underline;
+    cursor: pointer;
+}
 
+.send-btn.off { display: none; }
+.verify-btn { display: none; }
+.verify-btn.on { display: block; }
 
 /* ---------------------------------------------------------- */
 

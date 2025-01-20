@@ -3,33 +3,67 @@ const today = document.querySelector(".today");
 const currentTime = document.querySelector(".current-time");
 const punchInBtn = document.querySelector(".punch-in");
 
-let date = new Date();
-let year = date.getFullYear();
-let month = makeTwoDigit(date.getMonth() + 1);
-let day = makeTwoDigit(date.getDate());
-let week = date.getDay();
+let currDate = new Date();
 
-let weekdays = ['일', '월', '화', '수', '목', '금', '토']
-
-today.innerText = `${year}년 ${month}월 ${day}일(${weekdays[week]})`;
+today.innerText = makeFullDateFormat(currDate).fullDateWithDay;
 
 
 const updateTime = () => {
-    date = new Date();
+    currDate = new Date();
 
-    const hour = makeTwoDigit(date.getHours());
-    const minute = makeTwoDigit(date.getMinutes());
-    const second = makeTwoDigit(date.getSeconds());
+    const hour = makeTwoDigit(currDate.getHours());
+    const minute = makeTwoDigit(currDate.getMinutes());
+    const second = makeTwoDigit(currDate.getSeconds());
 
     currentTime.innerText = `${hour}:${minute}:${second}`;
-}
+};
 
-updateTime()
-setInterval(updateTime,1000)
+updateTime();
+setInterval(updateTime, 1000);
+
+const electricCards = document.querySelectorAll(".electric-card");
+const scheduleBox = document.querySelector(".dashboard-box.schedule");
+
+// 달력 높이에 따라 전자결재카드 높이 맞추기
+const setCardHeight = (element) => {
+    const checkWidthAndHeight = () => {
+        electricCards.forEach(card => {
+            if (window.innerWidth <= 1439) {
+                card.classList.remove("height");
+            } else {
+                if (element.offsetHeight === 401) {
+                    card.classList.add("height");
+                } else {
+                    card.classList.remove("height");
+                }
+            }
+        });
+    };
+
+    checkWidthAndHeight();
+
+    window.addEventListener("resize", checkWidthAndHeight);
+};
+
 
 document.addEventListener("DOMContentLoaded", async () => {
     await drawCalender();
 
-    prevBtn.addEventListener("click", getPrevMonth);
-    nextBtn.addEventListener("click", getNextMonth);
+    const getNextMonthDay = async () => {
+        await getNextMonth();
+
+        // 달력 높이에 따른 전자결재카드 높이
+        await setCardHeight(scheduleBox);
+
+    };
+
+    const getPrevMonthDay = async () => {
+        await getPrevMonth();
+
+        // 달력 높이에 따른 전자결재카드 높이
+        await setCardHeight(scheduleBox);
+    };
+
+    prevBtn.addEventListener("click", getPrevMonthDay);
+    nextBtn.addEventListener("click", getNextMonthDay);
 });

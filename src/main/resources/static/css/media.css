@@ -22,7 +22,7 @@
         display: none;
     }
     .tab-menu-btn { display: block; }
-    .alarm-modal { margin-right: 193px; }
+    .alarm-modal { margin-right: 137px; }
 
     /* 홈 */
     #main-container {
@@ -30,6 +30,9 @@
         display: flex;
         flex-direction: column;
     }
+    /*.electric-card.height {*/
+    /*    padding: 8px 14px;*/
+    /*}*/
 }
 
 /* 모니터 해상도 1920이상 일 때 (24인치~) */
