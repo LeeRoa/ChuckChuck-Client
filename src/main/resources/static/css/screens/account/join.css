@@ -156,6 +156,7 @@ label[for="birthDate"]::after { content: "일"; }
 .title-head { margin-bottom: 53px; }
 .result-form { margin-bottom: 111px }
 .result-box.join { margin: initial }
-
+.go-login { display: none; }
+.request-btn.off { display: block; }
 
 /* ---------------------------------------------------------- */

@@ -55,7 +55,7 @@ const goToVerify = async() => {
     } else if (isEmail === "404") {
         return alert("통신오류")
     } else {
-        await getValidCod();
+        await getValidCod(empEmail);
     }
 
     sendBtn.classList.add("off")
@@ -128,12 +128,21 @@ const getExistEmail = async (empEmail) => {
     }
 };
 
-const getValidCod = async () => {
+const getValidCod = async (empEmail) => {
     const response = await fetch(`${serverUrl}/emp/validate`, {
         method: "POST",
-        headers: {contentType: "application/json"}
+        headers: {contentType: "application/json"},
+        body: JSON.stringify({ empEmail })
     })
-    console.log(response)
+    try {
+        console.log(response)
+        if (response.status === 200) {
+            const data = response.json()
+            console.log(data)
+        }
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 inputEmail.addEventListener("input", () => {

@@ -8,11 +8,6 @@ const inputYear = document.getElementById("birthYear")
 const inputMonth = document.getElementById("birthMonth")
 const inputDate = document.getElementById("birthDate")
 
-// 특수문자
-const scRegex = /[!@#$%^&*]/;
-// 공백
-const trimRegex = /\s/
-
 items.forEach((item) => {
     item.onchange = () => {
         handleCheckItem(items)

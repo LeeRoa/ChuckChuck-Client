@@ -23,7 +23,7 @@
         <div class="profile-menu">
             <button class="gnb-icon on invite"><img src="/imgs/gnb/ic_invite.svg" alt="초대"></button>
             <button class="gnb-icon alarm"><img src="/imgs/gnb/ic_alarm.svg" alt="알림" class="gnb-icon alarm"></button>
-            <a href="" class="avatar-wrap">
+            <a href="/user/profile" class="avatar-wrap">
                 <img src="/imgs/202301261737390.jpg" alt="프로필" class="avatar">
                 <span class="first-name">김</span>
             </a>
@@ -31,8 +31,8 @@
         </div>
     </nav>
     <div class="modal-wrap">
-        <th:block th:insert="~{common/fragments/invite-modal :: inviteModalFragment}"></th:block>
-        <th:block th:insert="~{common/fragments/alarm-modal :: alarmModalFragment}"></th:block>
+        <th:block th:insert="~{common/fragments/modal/invite-modal :: inviteModalFragment}"></th:block>
+        <th:block th:insert="~{common/fragments/modal/alarm-modal :: alarmModalFragment}"></th:block>
     </div>
 </header>
 </html>

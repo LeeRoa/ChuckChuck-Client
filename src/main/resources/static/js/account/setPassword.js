@@ -32,9 +32,8 @@ const handleSubmit = (e) => {
         sessionStorage.setItem("empPw", empPw)
         location.href = "/join/request-join"
     }
-
-
 };
+
 
 inputPasswordChk.addEventListener("input", checkPassword);
 inputPassword.addEventListener("input", () => {

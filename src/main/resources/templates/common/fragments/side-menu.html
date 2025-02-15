@@ -1,7 +1,8 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       th:fragment="sideMenuFragment">
-<aside class="lnb-container">
+<aside>
+    <div class="lnb-container admin">
         <h1 class="lnb-title font-bold body-md">관리자</h1>
         <ul class="lnb">
             <li class="lnb-menu">
@@ -19,10 +20,10 @@
                 </div>
                 <ul class="lnb-submenu">
                     <li>
-                        <a href="/admin/work-time" class="lnb-style lnb-submenu-item">출퇴근 관리</a>
+                        <a href="/admin/work-time/state" class="lnb-style lnb-submenu-item">출퇴근 관리</a>
                     </li>
                     <li>
-                        <a href="" class="lnb-style lnb-submenu-item">출퇴근 설정</a>
+                        <a href="/admin/work-time/setting" class="lnb-style lnb-submenu-item">출퇴근 설정</a>
                     </li>
                 </ul>
             </li>
@@ -72,5 +73,21 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="lnb-container my-profile">
+        <h1 class="lnb-title font-bold body-md">마이페이지</h1>
+        <ul class="lnb">
+            <li class="lnb-menu">
+                <a href="/user/profile" class="lnb-style lnb-menu-item">
+                    <span>프로필</span>
+                </a>
+            </li>
+            <li class="lnb-menu">
+                <a href="/logoutProcess" class="lnb-style lnb-menu-item">
+                    <span>로그아웃</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </aside>
 </html>

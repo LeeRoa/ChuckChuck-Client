@@ -154,6 +154,10 @@ const drawCalender = async () => {
         daysContainer.appendChild(weekDayWrap);
     }
     printDates(year, month);
+    return {
+        year: year,
+        month: month,
+    }
 };
 
 const printHolidays = (holiday, date) => {
@@ -187,8 +191,9 @@ const printHolidays = (holiday, date) => {
 };
 
 const getPrevMonth = async () => {
-    tdate.setMonth(tdate.getMonth() - 1);
+    const prevMonth = tdate.setMonth(tdate.getMonth() - 1);
     await drawCalender();
+    return prevMonth;
 };
 
 const getLastWeekPreMonth = (year, month) => {
@@ -216,8 +221,11 @@ const getLastWeekPreMonth = (year, month) => {
 };
 
 const getNextMonth = async () => {
-    tdate.setMonth(tdate.getMonth() + 1);
+    // console.log(tdate)
+    // const nextMonth = tdate.setMonth(tdate.getMonth() + 1);
+    tdate = new Date(tdate.getFullYear(), tdate.getMonth() + 1, 1);
     await drawCalender();
+    return tdate;
 };
 
 const getFirstWeekNextMonth = (year, month) => {
