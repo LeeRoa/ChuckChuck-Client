@@ -1,4 +1,4 @@
-const joinForm =document.getElementById("joinForm");
+const joinForm = document.getElementById("joinForm");
 const items = [...document.querySelectorAll('[name=check-agree]')];
 const checkAll = document.getElementById("allAgree");
 const nextBtn = document.getElementById("next-btn");
@@ -20,7 +20,7 @@ items.forEach((item) => {
 });
 
 checkAll.onchange = (e) => {
-    items.forEach(async (item) => {
+    items.forEach((item) => {
         item.checked = e.target.checked;
     });
     handleCheckItem(items)

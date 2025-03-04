@@ -116,7 +116,7 @@ const getExistEmail = async (empEmail) => {
         method: "GET",
         headers: {contentType: "application/json"},
     })
-    if (response.ok) {
+    if (response.status === 200) {
         const data = await response.json();
         if (data.resultCode === '0') {
             return data.empInfo.find(mail => mail.empEmail === empEmail);
