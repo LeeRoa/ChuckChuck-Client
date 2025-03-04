@@ -2,7 +2,6 @@ package com.client.chuck.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,9 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Slf4j
 @Controller
 public class PageController {
-
-    @Value("${data.api.decoding}")
-    private String decodeApiKey;
 
     @GetMapping("/sample")
     public String sample() {
@@ -46,9 +42,9 @@ public class PageController {
         return "account/verify-email";
     }
 
-    @GetMapping("/login/request-login")
+    @GetMapping("/join/request-join")
     public String requestJoin() {
-        return "account/request-login";
+        return "account/request-join";
     }
 
     @GetMapping("/login")
@@ -76,9 +72,19 @@ public class PageController {
         return "admin/company-info";
     }
 
-    @GetMapping("/admin/work-time")
-    public String workTime() {
-        return "admin/work-time";
+    @GetMapping("/admin/work-time/state")
+    public String workTimeState() {
+        return "admin/work-state";
+    }
+
+    @GetMapping("/admin/work-time/setting")
+    public String workTimeSetting() {
+        return "admin/work-setting";
+    }
+
+    @GetMapping("/user/profile")
+    public String profile() {
+        return "user/profile";
     }
 
     //Spring Security 에서 처리

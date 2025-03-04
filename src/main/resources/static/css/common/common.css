@@ -60,13 +60,14 @@ input[readonly]:focus { border: 1px solid #8C8C8C; }
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance:none;
+    -webkit-appearance: none;
+    appearance: none;
     margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-    -moz-appearance:textfield;
+    -moz-appearance: textfield;
     cursor: text;
 }
 
@@ -133,14 +134,13 @@ input[type=number] {
 .date-pick { justify-content: center; gap: 0; }
 
 .date-btn {
-    width: 40px;
     height: 28px;
-    padding: 2px 3px;
+    padding: 2px 12px;
     border-radius: 4px;
     border: 0.5px solid var(--gray-300);
     background-color: var(--main-bg-white);
     color: var(--gray-700);
-    font-size: var(--body-sm-font-size);
+    font-size: var(--caption-xs-font-size);
     font-weight: var(--medium-weight-500);
     text-align: center;
     line-height: 21px;
@@ -241,7 +241,7 @@ label[for^="search"]::before {
     content: "";
     width: 24px;
     height: 24px;
-    top: -2px;
+    top: -1px;
     left: 10px;
     background: url("/imgs/ic_search.svg") no-repeat center;
 }
@@ -363,75 +363,3 @@ label:not([for^="birth"]) { cursor: pointer; }
 .page-container p { margin-bottom: 71px; }
 
 /* --------------------------------------------------------------- */
-
-/* 근무시간 변경 모달 */
-.time-edit-modal {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.25);
-}
-
-.time-edit-modal.open { display: block; }
-
-.edit-modal-inner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 240px;
-    padding: 17px 17px 10px 22px;
-    border-radius: 10px;
-    background-color: var(--main-bg-white);
-}
-
-.edit-modal-header span {
-    font-size: var(--body-md-font-size);
-    font-weight: var(--medium-weight-500);
-}
-
-.work-time-wrap, .after-edit {
-    display: flex;
-}
-.work-time-wrap {
-    margin: 27px 0 15px;
-    gap: 15px;
-}
-.work-time-wrap img { margin-top: 10px; }
-
-.after-edit { flex-direction: column; }
-.edit-text {
-    margin-bottom: 3px;
-    font-size: var(--caption-xxs-font-size);
-    font-weight: var(--regular-weight-400);
-    color: var(--gray-600);
-}
-
-.work-time-box {
-    width: 100px;
-    height: 40px;
-    padding: 5px 21px;
-    border-radius: 4px;
-    background-color: var(--gray-400);
-    text-align: center;
-}
-
-.before-time {
-    line-height: 30px;
-    color: var(--main-bg-white);
-}
-
-.work-time-input {
-    background-color: var(--main-bg-white);
-    border: 1px solid var(--gray-300);
-}
-.edit-work-info { line-height: 21px; }
-.edit-btn-wrap {
-    margin-top: 52px;
-    text-align: right;
-}

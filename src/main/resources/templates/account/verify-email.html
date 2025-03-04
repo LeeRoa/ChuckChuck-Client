@@ -13,29 +13,33 @@
                 <input type="email" name="" id="inputEmail" class="input-box"
                        placeholder="이메일 ex) chuckchuck@naver.com">
             </div>
-            <p class="message info">이메일을 입력하고 전송을 눌러주세요.</p>
+            <p id="checkEmail" class="message info">이메일을 입력하고 전송을 눌러주세요.</p>
         </div>
-        <div class="verify-container">
+        <div class="verify-container" id="verifyContainer">
             <div class="verify-input-wrap">
                 <label for="verifyCode"></label>
                 <input type="text" name="" id="verifyCode" class="input-box" placeholder="인증번호 (숫자6자리)">
             </div>
             <div class="time-container">
                 <div class="code-time-wrap">
-                    <p class="message code">2분 내로 인증을 완료해주세요.</p>
-                    <p class="message code time">02:00</p>
+                    <p id="verifyError" class="message code">2분 내로 인증을 완료해주세요.</p>
+                    <p id="timer" class="message code">02:00</p>
                 </div>
-                <button id="resendBtn" class="resend-btn">재전송</button>
+                <div id="resendBtn" class="resend-btn">재전송</div>
             </div>
         </div>
     </form>
-    <button class="primary-btn long" form="emailForm" disabled>
+    <button id="sendBtn" class="primary-btn long send-btn" disabled>
         <span>전송하기</span>
+    </button>
+    <button class="primary-btn long verify-btn" id="verifyBtn" form="emailForm">
+        <span>인증하기</span>
     </button>
     <a href="/join" class="text-btn back">돌아가기</a>
 </div>
 <th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
 
+<script layout:fragment="pageScripts" src="/js/account/common.js"></script>
 <script layout:fragment="pageScripts" src="/js/account/verifyEmail.js"></script>
 </body>
 </html>

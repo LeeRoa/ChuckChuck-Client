@@ -1,14 +1,15 @@
 const emailForm = document.getElementById("emailForm");
-const verifyContainer = document.querySelector(".verify-container");
-const messageTime = document.querySelector(".time");
-const sendBtn = document.querySelector(".primary-btn");
+const verifyContainer = document.getElementById("verifyContainer");
+const sendBtn = document.getElementById("sendBtn");
+const verifyBtn = document.getElementById("verifyBtn")
 const inputEmail = document.getElementById("inputEmail");
+const timer = document.getElementById("timer");
 const verifyCode = document.getElementById("verifyCode");
-const errorMessage1 = document.querySelector(".message.info");
-const errorMessage2 = document.querySelector(".code-time-wrap > p:first-child");
+const checkEmail = document.getElementById("checkEmail");
+const verifyError = document.getElementById("verifyError");
 const resendBtn = document.getElementById("resendBtn");
 
-let emailRegex = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+let empEmail;
 
 let code = "567892";
 
@@ -16,92 +17,88 @@ let totalSeconds = 120;
 let intervalId = null;
 
 const drawTwoMinute = () => {
-
     if (totalSeconds !== 0) {
         totalSeconds--;
 
         const min = Math.floor(totalSeconds / 60);
         const sec = totalSeconds % 60;
 
-        const formatMin = min < 10 ? `0${min}` : min;
-        const formatSec = sec < 10 ? `0${sec}` : sec;
-
-        return messageTime.innerText = `${formatMin}:${formatSec}`;
+        return timer.innerText = `${makeTwoDigit(min)}:${makeTwoDigit(sec)}`;
 
     } else {
         if (intervalId) {
             clearInterval(intervalId);
             intervalId = null;
-            return messageTime.innerText = "00:00";
+            return timer.innerText = "00:00";
         }
     }
-
 };
 
-const handleTwoMinute = () => {
+const handleTwoMinutes = () => {
     if (intervalId) return;
     intervalId = setInterval(drawTwoMinute, 1000);
 };
 
-const handleBtnDisabled = (e) => {
-    inputEmail.value ? sendBtn.disabled = false : sendBtn.disabled = true;
-};
+const goToVerify = async() => {
+    empEmail = inputEmail.value;
+
+    if (!emailRegex.test(empEmail)) {
+        drawErrorMessage(checkEmail, "이메일 형식이 아닙니다")
+        return;
+    }
+
+    const isEmail = await getExistEmail(empEmail);
+
+    if (isEmail) {
+        drawErrorMessage(checkEmail, "중복된 이메일 입니다.")
+        return;
+    } else if (isEmail === "404") {
+        return alert("통신오류")
+    } else {
+        await getValidCod(empEmail);
+    }
+
+    sendBtn.classList.add("off")
+    verifyBtn.classList.add("on")
+    inputEmail.readOnly = true;
+    checkEmail.classList.remove("error", "on");
+    checkEmail.style.display = "none";
+    verifyContainer.classList.add("on");
+
+    handleTwoMinutes();
+}
 
 const handleResendCode = () => {
     // 남은시간과 관계 없이 재전송 누르면 코드 재발송
-    alert("인증번호가 재 전송 되었습니다.");
+    if (confirm("인증번호를 새로 받으시겠습니까?")) {
+        alert("인증번호가 재 전송 되었습니다.");
 
-    code = "789021";
-    if (intervalId) {
-        totalSeconds = 120;
-        handleTwoMinute();
+        code = "789021";
+        if (intervalId) {
+            totalSeconds = 120;
+            handleTwoMinutes();
+        }
+    } else {
+        alert("인증번호 재전송 취소")
     }
 };
 
 const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const empEmail = inputEmail.value;
-
-    if (!emailRegex.test(empEmail)) {
-        errorMessage1.classList.add("error");
-        errorMessage1.classList.add("on");
-        errorMessage1.innerText = "이메일 형식이 아닙니다.";
-        return;
-    }
-
-    const isEmail = await getExistEmail(empEmail);
-    if (isEmail) {
-        errorMessage1.classList.add("error");
-        errorMessage1.classList.add("on");
-        errorMessage1.innerText = "중복된 이메일 입니다.";
-        return
-    }
-
-    inputEmail.readOnly = true;
-    errorMessage1.classList.remove("error");
-    errorMessage1.classList.remove("on");
-    errorMessage1.style.display = "none";
-    verifyContainer.classList.add("on");
-    errorMessage2.innerText = "2분 내로 인증을 완료해 주세요.";
-
-    sendBtn.textContent = "인증하기";
-
-    handleTwoMinute();
-
     if (totalSeconds === 0) {
-        errorMessage2.innerText = "인증시간 초과입니다. 인증번호 재발급 받으세요.";
+        verifyError.innerText = "인증시간 초과입니다. 인증번호 재발급 받으세요.";
         return;
     }
 
     if (verifyCode.value.trim() === "") {
-        errorMessage2.innerText = "인증번호를 입력해 주세요.";
+        verifyError.innerText = "인증번호를 입력해 주세요.";
         return;
-    } else if (verifyCode.value.length !== 6) {
-        errorMessage2.innerText = "6자리 인증번호를 입력해 주세요.";
-        return;
+    } else if (!sixDigitRegex.test(verifyCode.value)) {
+        verifyError.innerText = "6자리 숫자 인증번호를 입력해 주세요.";
+        return
     } else if (verifyCode.value !== code) {
-        errorMessage2.innerText = "인증번호가 일치하지 않습니다.";
+        verifyError.innerText = "인증번호가 일치하지 않습니다.";
         return;
     }
 
@@ -112,18 +109,45 @@ const handleSubmit = async (e) => {
 };
 
 const getExistEmail = async (empEmail) => {
-    const response = await fetch(`https://localhost:28444/emp`, {
+    const response = await fetch(`${serverUrl}/emp`, {
         method: "GET",
         headers: {contentType: "application/json"},
-    })
-    if (response.status === 200) {
-        const data = await response.json();
-        if (data.resultCode === '0') {
-            return data.empInfo.find(mail => mail.empEmail === empEmail);
+    });
+    try {
+        if (response.status === 200) {
+            const data = await response.json();
+            if (data.resultCode === '0') {
+                const isEmpEmail = data.empInfo.find(mail => mail.empEmail === empEmail)
+                if (isEmpEmail === empEmail) return true
+            }
+        } else if (response.status === 404) {
+            return "404"
         }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const getValidCod = async (empEmail) => {
+    const response = await fetch(`${serverUrl}/emp/validate`, {
+        method: "POST",
+        headers: {contentType: "application/json"},
+        body: JSON.stringify({ empEmail })
+    })
+    try {
+        console.log(response)
+        if (response.status === 200) {
+            const data = response.json()
+            console.log(data)
+        }
+    } catch (error) {
+        console.log(error)
     }
 }
 
-inputEmail.addEventListener("input", handleBtnDisabled);
+inputEmail.addEventListener("input", () => {
+    handleBtnDisabled(inputEmail, sendBtn)
+});
+sendBtn.addEventListener("click", goToVerify)
 emailForm.addEventListener("submit", handleSubmit);
 resendBtn.addEventListener("click", handleResendCode);

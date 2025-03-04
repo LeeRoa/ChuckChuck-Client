@@ -1,0 +1,161 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/adminLayout}">
+<div layout:fragment="content" class="inner admin">
+    <section class="date-pick-section">
+        <div id="calenderWrap" class="calender-wrap">
+            <div class="select-cal">
+                <div id="drawToday" class="get-today"></div>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 11.825L8.825 8L5 4.175L6.18333 3L11.1833 8L6.18333 13L5 11.825Z"
+                          fill="#616161"/>
+                </svg>
+            </div>
+            <div id="calDrop" class="cal-drop">
+                <th:block th:insert="~{common/fragments/calender :: calenderFragment}"></th:block>
+            </div>
+        </div>
+        <div class="date-pick-wrap">
+            <div id="todayBtn" class="date-btn date-today">오늘</div>
+            <div class="date-pick">
+                <div class="date-btn date-day on">일</div>
+                <div class="date-btn date-week">주</div>
+                <div class="date-btn date-month">월</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="select-emp">
+        <div class="select-wrap">
+            <div class="select-box">
+                <div class="select-one">부서 선택</div>
+                <img src="/imgs/ic_move_in.svg" alt="화살표">
+            </div>
+            <div class="sel-options">
+                <p>전체</p>
+                <p>경영팀</p>
+                <p>기획전략팀</p>
+                <p>재무팀</p>
+                <p>개발팀</p>
+                <p>프로덕트 디자인팀</p>
+                <p>브랜드 디자인팀</p>
+                <p>퍼포먼스 마케팅팀</p>
+                <p>콘텐츠 기획팀</p>
+                <p>CS팀</p>
+            </div>
+        </div>
+        <div class="input-search-bar">
+            <label for="searchInput">
+                <input type="text" name="" id="searchInput" class="input-box small search" placeholder="직원 검색">
+            </label>
+        </div>
+    </section>
+
+    <section class="emp-table">
+        <div id="dateTable" class="table-wrap date-table">
+            <ul class="table-title">
+                <li class="table-head">이름</li>
+                <li class="table-head">직책</li>
+                <li class="table-head">출근시간</li>
+                <li class="table-head">퇴근시간</li>
+                <li class="table-head">근무형태</li>
+                <li class="table-head">휴게시간</li>
+                <li class="table-head">연장근무시간</li>
+                <li class="table-head">근무시간</li>
+                <li class="table-head">야간근무시간</li>
+            </ul>
+            <ul class="table-content">
+                <li class="table-data emp-name">김성은</li>
+                <li class="table-data dept-name">프론트엔드 개발자</li>
+                <li class="table-data edit-data">
+                    <p>-</p>
+                    <th:block th:insert="~{common/fragments/edit-btn :: editBtnFragment}"></th:block>
+                </li>
+                <li class="table-data edit-data">
+                    <p>-</p>
+                    <th:block th:insert="~{common/fragments/edit-btn :: editBtnFragment}"></th:block>
+                </li>
+                <li class="table-data">결근</li>
+                <li class="table-data">1시간</li>
+                <li class="table-data edit-data">
+                    <p>-</p>
+                    <th:block th:insert="~{common/fragments/edit-btn :: editBtnFragment}"></th:block>
+                </li>
+                <li class="table-data">-</li>
+                <li class="table-data">-</li>
+            </ul>
+        </div>
+        <div id="weekMonthTable" class="week-month-wrap">
+            <div class="table-grid">
+                <div class="emp-work-info">
+                    <div class="emp-info">
+                        <div class="emp-name">김영식</div>
+                        <div class="emp-position">CEO</div>
+                    </div>
+                    <div class="daily-rate">단위: <span class="rate-name">주</span></div>
+                    <ul class="work-times">
+                        <li>
+                            <p>근무가능시간</p>
+                            <p>52시간</p>
+                        </li>
+                        <li>
+                            <p>필수근무시간</p>
+                            <p>40시간</p>
+                        </li>
+                        <li>
+                            <p>실근무시간</p>
+                            <p>40시간</p>
+                        </li>
+                        <li>
+                            <p>연장근무시간</p>
+                            <p>00시간</p>
+                        </li>
+                        <li>
+                            <p>야간근무시간</p>
+                            <p>00시간</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="table-wrap weekMonth-table">
+                    <ul class="table-title">
+                        <li class="table-head">날짜</li>
+                        <li class="table-head">출근시간</li>
+                        <li class="table-head">퇴근시간</li>
+                        <li class="table-head">근무형태</li>
+                        <li class="table-head">휴게시간</li>
+                        <li class="table-head">연장근무시간</li>
+                        <li class="table-head">근무시간</li>
+                        <li class="table-head">야간근무시간</li>
+                    </ul>
+                    <ul class="table-content">
+                        <li class="table-data work-date">2025.01.23</li>
+                        <li class="table-data edit-data">
+                            <p>10:30</p>
+                            <th:block th:insert="~{common/fragments/edit-btn :: editBtnFragment}"></th:block>
+                        </li>
+                        <li class="table-data edit-data">
+                            <p>-</p>
+                            <th:block th:insert="~{common/fragments/edit-btn :: editBtnFragment}"></th:block>
+                        </li>
+                        <li class="table-data">결근</li>
+                        <li class="table-data">1시간</li>
+                        <li class="table-data edit-data">
+                            <p>-</p>
+                            <th:block th:insert="~{common/fragments/edit-btn :: editBtnFragment}"></th:block>
+                        </li>
+                        <li class="table-data">-</li>
+                        <li class="table-data">-</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <th:block th:insert="~{/common/fragments/modal/time-edit-modal :: timeEditModalFragment}"></th:block>
+</div>
+
+<th:block layout:fragment="pageScripts">
+    <script src="/js/calender.js"></script>
+    <script src="/js/admin/workState.js"></script>
+</th:block>
+</html>

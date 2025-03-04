@@ -1,29 +1,42 @@
-let passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,32}$/;
-const inputPassword = document.getElementById("password")
-const inputPasswordChk = document.getElementById("passwordChk")
-const errorMessage = document.querySelector(".message.error")
-const nextBtn = document.querySelector(".primary-btn")
+const passwordForm = document.getElementById("passwordForm");
+const inputPassword = document.getElementById("password");
+const inputPasswordChk = document.getElementById("passwordChk");
+const notMatchPwMessage = document.getElementById("notMatchPw");
+const invalidPwMessage = document.getElementById("isValidPw")
 
-const regex_pwd = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&#.~_-])[A-Za-z\d@$!%*?&#.~_-]{8,32}$/
+const nextBtn = document.getElementById("nextBtn");
 
 const checkPassword = () => {
-    const passwordValue = inputPassword.value
-    const passwordChkValue = inputPasswordChk.value
+    const passwordValue = inputPassword.value;
+    let passwordChkValue = inputPasswordChk.value;
 
     if (passwordValue !== passwordChkValue) {
-        return errorMessage.classList.add("on")
+        drawErrorMessage(notMatchPwMessage, "비밀번호가 일치하지 않습니다.");
+        return false;
     } else {
-        return errorMessage.classList.remove("on")
+        notMatchPwMessage.innerText = "";
+        notMatchPwMessage.classList.remove("on", "error");
     }
-}
+    return passwordChkValue;
+};
 
-const handleBtnDisabled = (e) => {
-    if (inputPassword.value) {
-        nextBtn.disabled = false;
-    } else {
-        nextBtn.disabled = true;
+const handleSubmit = (e) => {
+    e.preventDefault();
+    let empPw = checkPassword();
+
+    if (empPw) {
+        if (!passwordRegex.test(empPw)) {
+            invalidPwMessage.classList.add("invalid")
+            return
+        }
+        sessionStorage.setItem("empPw", empPw)
+        location.href = "/join/request-join"
     }
-}
+};
+
 
 inputPasswordChk.addEventListener("input", checkPassword);
-inputPassword.addEventListener("input", handleBtnDisabled);
+inputPassword.addEventListener("input", () => {
+    handleBtnDisabled(inputPassword, nextBtn);
+});
+passwordForm.addEventListener("submit", handleSubmit);

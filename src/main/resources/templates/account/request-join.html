@@ -11,17 +11,22 @@
     </div>
     <form action="" id="joinForm" class="result-form">
         <div class="result-box join">
-            <span>rlawlgh486@naver.com</span>
-            <span>김지호</span>
+            <span id="resultEmail"></span>
+            <span id="resultName"></span>
         </div>
+        <p id="confirmMsg" class="message"></p>
     </form>
-    <button class="primary-btn long" form="joinForm">
+    <button id="requestJoinBtn" class="primary-btn long request-btn" form="joinForm">
         <span>가입 요청 보내기</span>
     </button>
-    <a href="/login" class="text-btn back">돌아가기</a>
+    <button id="goLoginBtn" class="primary-btn long go-login">
+        <span>로그인하러 가기</span>
+    </button>
+    <a href="/join/set-password" class="text-btn back">돌아가기</a>
 </div>
 <th:block th:insert="~{common/fragments/accountFooter :: accountFooterFragment}"></th:block>
 
-<script layout:fragment="pageScripts" src="/js/account/findId.js"></script>
+<script layout:fragment="pageScripts" src="/js/account/common.js"></script>
+<script layout:fragment="pageScripts" src="/js/account/requestJoin.js"></script>
 </body>
 </html>

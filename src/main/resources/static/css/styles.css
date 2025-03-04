@@ -11,17 +11,21 @@
 @import url("components/footer.css");
 @import url("components/side-menu.css");
 @import url("components/calender.css");
+@import url("components/invite-alarm-modal.css");
+@import url("components/edit-workTime-modal.css");
 
 /* screens */
 /* 회원가입/로그인 */
-@import url("screens/join.css");
-@import url("screens/login.css");
-@import url("screens/find-account.css");
+@import url("screens/account/join.css");
+@import url("screens/account/login.css");
+@import url("screens/account/find-account.css");
 /* 메인(공통) */
-@import url("screens/home.css");
+@import url("screens/account/home.css");
 /* 관리자 */
-@import url("screens/company-info.css");
-@import url("screens/work-time.css");
+@import url("screens/admin/company-info.css");
+@import url("screens/admin/work-state.css");
+/* 사용자 */
+@import url("screens/user/profile.css");
 
 /* media 반응형 */
 @import url("media.css");

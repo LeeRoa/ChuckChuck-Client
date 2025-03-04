@@ -5,6 +5,7 @@
     --main-bg-gray-color: #9E9E9E;
     --main-bg-white: #FFFFFF;
     --main-bg-black: #000000;
+    --main-bg-blue: #436AF5;
     --gray-800: #424242;
     --gray-700: #616161;
     --gray-600: #757575;
@@ -27,6 +28,7 @@
     --body-sm-font-size: 16px;
     --caption-xs-font-size: 14px;
     --caption-xxs-font-size: 12px;
+    --caption-xxxs-font-size: 10px;
 
     /* 두께 */
     --thin-weight-100: 100;

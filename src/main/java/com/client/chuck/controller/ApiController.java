@@ -20,5 +20,4 @@ public class ApiController {
         String response = apiService.getHoliday(year, month);
         return ResponseEntity.ok(response);
     }
-
 }
