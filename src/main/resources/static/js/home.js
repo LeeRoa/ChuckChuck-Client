@@ -48,6 +48,7 @@ const setCardHeight = (element) => {
 
 document.addEventListener("DOMContentLoaded", async () => {
     await drawCalender();
+    await setCardHeight(scheduleBox);
 
     const getNextMonthDay = async () => {
         await getNextMonth();
